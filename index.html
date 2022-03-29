@@ -1,0 +1,1427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Lorenzo Dello Schiavo</title>
+  <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+  <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+
+  <!--Import Bootstrap CSS-->
+  	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+<!--IMPORT & SETUP MATHJAX-->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      jax: ["input/TeX", "output/HTML-CSS"],
+      extensions: ["tex2jax.js"],
+      "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] },
+      tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], displayMath: [ ["$$","$$"], ["\\[", "\\]"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno" },
+      TeX: { noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } } },
+      messageStyle: "none"
+    });
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+
+<!--FontAwesome-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!--Academicons-->
+	<link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+
+<!--Styles-->
+  <style>
+    p.presentation-text {
+      font-size:13px;
+      text-align: justify;
+      -ms-hyphens:auto;
+      hyphens:auto;
+      text-align:justify;
+      color:#505050;
+    }
+
+    p.card-text {
+      font-size:12px;
+      text-align: justify;
+      -ms-hyphens:auto;
+      hyphens:auto;
+    }
+
+    p.card-author {
+      font-size:11px;
+      text-align:right;
+      -ms-hyphens:auto;
+      hyphens:auto;
+      margin-bottom: 0;
+    }
+
+    li.card-title {
+      font-size:12px;
+      -ms-hyphens:auto;
+      hyphens:auto;
+      margin-bottom: 0;
+    }
+
+    p.card-link {
+      font-size:13px;
+      text-align:right;
+      -ms-hyphens:auto;
+      hyphens:auto;
+      margin-bottom: 0;
+    }
+
+  /*NAVBAR*/
+    #BtnActivities,#BtnResearch,#BtnPublications,#BtnTeaching,#BtnLocation,#BtnSciPop:link{
+      color: white !important;
+      padding-top:8px;
+    }
+
+    #BtnActivities,#BtnResearch,#BtnPublications,#BtnTeaching,#BtnSciPop,#BtnLocation:active{
+      color: white !important;
+    }
+
+    #BtnActivities,#BtnResearch,#BtnPublications,#BtnAbout,#BtnTeaching,#BtnSciPop,#BtnLocation:focus{
+      color: white !important;
+      box-shadow: 0 0 0 0 !important;
+    }
+
+    .navbar-btn{
+      white-space: nowrap;
+    }
+
+    .navbar-btn-first{
+      border-top-left-radius: 50% !important;
+      border-bottom-left-radius: 50% !important;
+    }
+
+    .navbar-btn-last{
+      border-top-right-radius: 50% !important;
+      border-bottom-right-radius: 50% !important;
+    }
+
+    .navbar-btn-first,.navbar-btn-last:hover{
+      background-color: #343a40 !important;
+      border-color: #343a40 !important;
+    }
+
+    @media screen and (min-width: 768px) {
+      #Activities,#SciPop,#Teaching,#Publications,#Location,#Research,#About {
+        -webkit-transition: max-width 1.5s ease;
+        -moz-transition: max-width 1.5s ease;
+        -o-transition: max-width 1.5s ease;
+        transition: max-width 1.5s ease;
+        transition-delay: .5s;
+
+        display: inline-block;
+        overflow: hidden;
+        white-space: nowrap;
+        vertical-align: middle;
+        
+        font-size: 16px;
+
+        width: 0px;
+      }
+    }
+
+    @media screen and (max-width: 767px) {
+      #Activities,#SciPop,#Teaching,#Publications,#Location,#Research,#About,#LzDS {
+        display: none;
+      }
+    }
+    
+    @media screen and (min-width: 1024px) {
+      #Activities {max-width: 76px;}
+      #Location {max-width: 67px;}
+      #Teaching {max-width: 75px;}
+      #About {max-width: 54px;}
+      #Publications {max-width: 99px;}
+      #Research {max-width: 75px;}
+      #SciPop {max-width: 68px;}
+    }
+    /*
+      #Activities,#SciPop,#Teaching,#Publications,#Location,#Research,#About {
+      max-width: 0px;
+    }
+    */
+
+/*
+    #Activities {max-width: 76px;}
+    #Location {max-width: 67px;}
+    #Teaching {max-width: 75px;}
+    #About {max-width: 54px;}
+    #Publications {max-width: 99px;}
+    #Research {max-width: 75px;}
+    #SciPop {max-width: 68px;}
+  */
+
+  /*ACCORDIONS*/
+  /*Links*/
+
+  /* unvisited link */
+  a:link {
+    color: darkslategray;
+  }
+  /* visited link */
+  a:visited {
+    color: darkslategray;
+  }
+  /* mouse over link */
+  a:hover {
+    color: darkslategray;
+  }
+  /* selected link */
+  a:active {
+    color: darkslategray;
+  }
+
+  /*Accordion button*/
+  .AccordionBtn {
+    box-shadow:none !important;
+    outline:0px !important;
+    font-size:13px;
+    color: DarkSlateGray !important;
+    white-space: normal !important;
+    padding-top: 4px !important;
+    padding-bottom: 5px !important;
+  }
+
+  .accordion>ol {
+    padding-left: 0;
+  }
+
+  /*Description lists*/
+    dl {
+      padding: 0.5em;
+    }
+
+    dt {
+      float: left;
+      clear: left;
+      width: 90px;
+      text-align: right;
+      font-weight: normal;
+    }
+
+    dd {
+      margin: 0 0 0 110px;
+      padding: 0 0 0.5em 0;
+    }
+
+  /*BODY*/
+    html {
+      height: 100%;
+      box-sizing: content-box;
+			width: 100%;
+    }
+
+    main {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 80px;
+    }
+
+    .colophon {
+      background-color: white;
+      opacity:.80;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container container-responsive mt-4">
+    <div class="row">
+      <div class="col d-flex justify-content-center">
+        <div class="btn-group list-group list-group-horizontal" id="list-tab" role="tablist" style="max-width: 620px">
+
+          <button class="btn btn-dark btn-sm navbar-btn navbar-btn-first AccordionBtn">
+          </button>
+
+          <!--Activities button-->
+          <a class="btn btn-dark btn-sm navbar-btn" id="BtnActivities" data-toggle="list" href="#ActivitiesTab" target="#Activities" role="tab" aria-controls="ActivitiesTab">
+            &thinsp;<i class="fa fa-calendar"></i>
+            <div id="Activities" class="pb-1">&ensp;activities&ensp;</div>
+          </a>
+
+          <!--Teaching button-->
+          <a class="btn btn-dark btn-sm navbar-btn" id="BtnTeaching" data-toggle="list" href="#TeachingTab" target="#Teaching" role="tab" aria-controls="TeachingTab">
+            &thinsp;<i class="fa fa-graduation-cap"></i>
+            <div id="Teaching" class="pb-1">&ensp;teaching&ensp;</div>
+          </a>
+
+          <!--Location button-->
+          <a class="btn btn-dark btn-sm navbar-btn" id="BtnLocation" data-toggle="list" href="#LocationTab" target="#Location" role="tab" aria-controls="LocationTab">
+            &thinsp;<i class="fa fa-envelope"></i>
+            <div id="Location" class="pb-1">&ensp;contact&ensp;</div>
+          </a>
+
+          <!--About button-->
+          <a class="btn btn-dark btn-sm navbar-btn" id="BtnAbout" data-toggle="list" href="#AboutTab" target="#About" role="tab" aria-controls="AboutTab" style="font-size: 16px" autofocus>
+            &thinsp;&thinsp;<img src="me.png" class="rounded-circle z-depth-0 my-0" alt="avatar image" height="35">
+            <span id="LzDS" class="pb-1" style="margin-left:6px;">Lorenzo&ensp;Dello&nbsp;Schiavo</span>
+          <!--
+            <div id="About" class="pb-1">about&ensp;</div>
+          -->
+          </a>
+
+          <!--Publications button-->
+          <a class="btn btn-dark btn-sm navbar-btn" id="BtnPublications" data-toggle="list" href="#PublicationsTab" target="#Publications" role="tab" aria-controls="PublicationsTab">
+            &thinsp;<i class="fa fa-paragraph" style="margin-right: 2px; margin-left: 2px;"></i>
+            <div id="Publications" class="pb-1">&ensp;publications&ensp;</div>
+          </a>
+
+          <!--Research button-->
+          <a class="btn btn-dark btn-sm navbar-btn" id="BtnResearch" data-toggle="list" href="#ResearchTab" target="#Research" role="tab" aria-controls="ResearchTab">
+            &thinsp;<i class="fa fa-flask" style="margin-left: 2.5px; margin-right: 2.5px;"></i>
+            <div id="Research" class="pb-1">&ensp;research&ensp;</div>
+          </a>
+         
+          <!--SciPop button-->
+          <a class="btn btn-dark btn-sm navbar-btn" id="BtnSciPop" data-toggle="list" href="#SciPopTab" target="#SciPop" role="tab" aria-controls="SciPopTab">
+            &thinsp;<i class="fa fa-rocket"></i>
+            <div id="SciPop" class="pb-1">&ensp;sci-pop&ensp;</div>
+          </a>
+
+          <button class="btn btn-dark btn-sm navbar-btn navbar-btn-last AccordionBtn">
+          </button>
+
+        </div>
+      </div>
+    </div>
+
+ 
+  <!--Tabs-->
+    <div class="row" style="margin-top: 3rem;">
+      <div class="col">
+        <div class="tab-content" id="nav-tabContent">
+
+          <!--BLANK-->
+          <div class="tab-pane fade" id="BlankTab" role="tabpanel">
+            <div class="row justify-content-center" style="margin-top: 100px">
+              <span style="font-size:10px;">
+                <em>This page is intentionally left blank</em>
+              </span>
+            </div>
+          </div>
+
+          <!--Activities Tab-->
+          <div class="tab-pane fade" id="ActivitiesTab" role="tabpanel" aria-labelledby="BtnActivities">
+            <div class="container mx-auto" style="max-width:560px">
+              <h6>upcoming events</h6>
+              <dl style="font-size:13px">
+                <dt>13–16/6/22</dt>
+                <dd>
+                  <a href="https://site.unibo.it/probstat/en/">Third Italian Meeting on Probability and Mathematical Statistics</a>, Alma Mater Studiorum &mdash; University of Bologna, Bologna, IT
+                </dd>
+
+                <dt>11–14/4/22</dt>
+                <dd>
+                  <a href="https://spp2265.wias-berlin.de/">SPP 2265</a> <em>Random Geometric Systems</em>
+                  <a href="https://www.wias-berlin.de/workshops/RaGeSys/">First Annual Conference</a>, Harnack Haus, Berlin, DE
+                </dd>
+              </dl>
+
+              <h6>standing events</h6>
+              <dl style="font-size:13px">
+                <dt>9/20–present</dt>
+                <dd> @ IST&nbsp;Austria &amp; Uni&nbsp;Wien &amp; TU&nbsp;Wien, Vienna, AT
+                  <br>
+                    <em><a href="https://mathematik.univie.ac.at/forschung/stochastik-und-finanzmathematik/vienna-probability-seminar/">Vienna Probability Seminar</a></em> &bull;
+                    <em><a href="https://mathematik.univie.ac.at/forschung/stochastik-und-finanzmathematik/not-so-informal-probability-seminar/?no_cache=1">(Not so) Informal Probability Seminar</a></em> &bull;
+                    <em><a href="https://mathphys.pages.ist.ac.at/">MathPhys Analysis Seminar</a></em>
+                </dd>
+
+                <dt>10/15–8/20</dt>
+                <dd> @ IAM&nbsp;Bonn, Bonn, DE
+                  <br>
+                    <em>Probability seminar</em> &bull;
+                    <em>Stochastic and geometric analysis seminar</em> &bull;
+                    <em>CRC 1060 seminar</em> &bull;
+                    <em>Hausdorff Kolloquium</em>
+                </dd>
+
+                <dt>10/13–7/15</dt>
+                <dd>@ Sapienza &mdash; Università di Roma, Rome, IT
+                  <br>
+                    <em>Analysis seminar</em>
+                </dd>
+              </dl>
+
+              <h6>some past events</h6>
+              <dl style="font-size:13px">
+                <dt>21/11-18/12/20</dt> <dd><em>Research in Pairs</em> with <a href="https://ksuzukimath.jimdofree.com/">Kohei Suzuki</a>, MFO, Oberwolfach, DE</dd>
+
+                <dt>28–29/1/20</dt> <dd><em>Inhomogeneous Random Systems</em>, Institut Curie, Paris, FR</dd>
+
+                <dt>17–23/11/19</dt> <dd>MFO workshop <em>Heat Kernels, Stochastic Processes and Functional Inequalities</em>, MFO, Oberwolfach, DE</dd>
+
+                <dt>2–6/9/19</dt> <dd>9th <em>Japanese-German Open Conference on Stochastic Analysis</em>, Fukuoka, JP</dd>
+
+                <dt>7–12/7/19</dt> <dd>5th school on <em>Stochastic and Geometric Analysis</em>, Piz&nbsp;Buin, AT</dd>
+
+                <dt>11–13/3/19</dt> <dd>Retreat 2019 of the Collaborative Research Center 1060, Weilburg, DE</dd>
+
+                <dt>12–16/11/18</dt> <dd>9th conference on <em>Optimal Transportation and Applications</em>, SNS, Pisa, IT</dd>
+                
+                <dt>12–14/3/18</dt> <dd>Retreat 2018 of the Collaborative Research Center 1060, Bad&nbsp;Neuenahr-Ahrweiler, DE</dd>
+
+                <dt>4–29/9/17</dt> <dd><em>Metric Measure Spaces and Ricci Curvature</em> – Intense Activity Period, MPIM, Bonn, DE</dd>
+
+                <dt>7–11/11/16</dt> <dd>8th conference on <em>Optimal Transportation and Applications</em>, SNS, Pisa, IT</dd>
+
+                <dt>10–14/10/16</dt> <dd><em>Stochastic Partial Differential Equations and Related Fields</em>, in honor of Michael Röckner, Bielefeld&nbsp;U, Bielefeld, DE</dd>
+
+                <dt>29/8–2/9/16</dt> <dd><em>Follow-up Workshop to JTP Optimal Transportation</em>, HIM, Bonn, DE</dd>
+
+                <dt>4–8/4/16</dt> <dd>4th school on <em>Stochastic and Geometric Analysis</em>, Vlieland, NE</dd>
+
+                <dt>21–23/10/15</dt> <dd><em>Panorama of Mathematics</em>, HCM, Bonn, DE</dd>
+              </dl>
+            </div>
+          </div>
+
+          <!--Location Tab-->
+          <div class="tab-pane fade" id="LocationTab" role="tabpanel" aria-labelledby="BtnLocation">
+
+            <div class="row justify-content-center mx-auto mb-6" style="max-width:560px">
+              <div class="column mx-auto">
+                <!-- IST ADDRESS-->
+                <span style="font-size:14px">
+                  <a href="https://ist.ac.at/en/home/" target="_blank">IST Austria</a>
+                </span>
+
+                <div class="ml-2" style="font-size:13px">
+                  <div class="media">
+                    <div class="align-self-center mr-3">
+                      <a class="fa fa-map-marker fa-lg" href="https://www.google.com/maps/place/Lab+Building+West+I21/@48.3100088,16.2558542,17z/data=!3m1!4b1!4m5!3m4!1s0x476d0c2221b3ae55:0x3ef519bdf369985e!8m2!3d48.3100088!4d16.258043"></a>
+                    </div>
+                    <div class="media-body">
+                      Lab&nbsp;Building&nbsp;West&nbsp;I21
+                      <br>
+                      Am Campus 1
+                      <br>
+                      3400&nbsp;Klosterneuburg
+                    </div>
+                  </div>
+                </div>
+
+                <!-- IST MAIL-->
+                <span style="font-size:14px">
+                  <a href="mailto:lorenzo.delloschiavo*usualsymbol*ist.ac.at" data-toggle="tooltip" title="Please insert &commat; where appropriate!">lorenzo.delloschiavo&thinsp;<i class="fa fa-at"></i>&thinsp;ist.ac.at</a>
+                </span>
+              </div>
+
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2653.6278343210897!2d16.255854215655017!3d48.31000877923749!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476d0c2221b3ae55%3A0x3ef519bdf369985e!2sLab%20Building%20West%20I21!5e0!3m2!1sit!2sde!4v1593211014891!5m2!1sit!2sde" width="600" height="400" frameborder="0" style="border:0; margin-top: 3rem;" allowfullscreen="" aria-hidden="false" tabindex="0">
+              </iframe>
+            </div>
+          </div>
+
+        <!--Tab teaching-->  
+          <div class="tab-pane fade" id="TeachingTab" role="tabpanel" aria-labelledby="BtnTeaching">
+            <div class="container" style="max-width:560px">
+              <h6>IST Austria (lecturer)</h6>
+
+              <dl style="font-size:13px">
+                <dt>04–06/22</dt>
+                <dd>
+                  <em>Fractional Gaussian Fields</em>
+                  <p class="mb-0" style="font-size: 10px">
+                    C_MAT-209, graduate lecture course
+                    <br>
+                    joint with <a href="https://sites.google.com/view/federicosau/home">Federico Sau</a>
+                  </p>
+                </dd>
+
+                <dt>11/20–01/21</dt>
+                <dd>
+                	<em>Maths for quantitative life scientists: Probability and Statistical Inference</em>
+                	<p class="mb-0" style="font-size: 10px">
+                		C_MAT-209, graduate lecture course
+                	</p>
+                </dd>
+              </dl>
+
+              <h6>IAM&nbsp;Bonn (teaching assistant)</h6>
+              <dl style="font-size:13px">
+                <dt>04–07/20</dt>
+                <dd>
+                  <em>Mathematik III für Physiker*innen</em>
+                  <p class="mb-0" style="font-size:10px">
+                    math241 SoSe 2020 61112, undergraduate lecture course
+										<br>
+                    lecturer: Dr. André&nbsp;Schlichting
+                  </p>
+                </dd>
+
+                <dt>04–07/19</dt>
+                <dd>
+                  <em>Algorithmische Mathematik II</em>
+                  <p class="mb-0" style="font-size:11px">
+                    V1G6 SoSe 2019 611100106, undergraduate lecture course
+                    <br>
+                    lecturer: Prof. Dr. Patrik&nbsp;Ferrari
+                  </p>
+                </dd>
+
+                <dt>10–12/18</dt>
+                <dd>
+                  <em>Advanced Topics in Stochastic Analysis – Functional inequalities and stochastic analysis on manifolds</em>
+                  <p class="mb-0" style="font-size:11px">
+                    V5F3 WiSe 2018/19 611500708, graduate lecture course
+                    <br>
+                    lecturer: Prof. Kazumasa&nbsp;Kuwada, PhD
+                  </p>
+                </dd>
+
+                <dt>04–09/18</dt>
+                <dd>
+                  <em>Stochastic Analysis</em>
+                  <p class="mb-0" style="font-size:11px">
+                    V4F1 SoSe 2018 611500701, graduate lecture course
+                    <br>
+                    lecturer: Prof. Kazumasa&nbsp;Kuwada, PhD
+                  </p>
+                </dd>
+
+                <dt>10/16-3/17</dt>
+                <dd>
+                  <em>Introduction to Stochastic Analysis</em>
+                  <p class="mb-0" style="font-size:11px">
+                    V3F2/F4F1 WiSe 2016/17 611100704, graduate lecture course
+                    <br>
+                    lecturer: Dr. Matthias&nbsp;Erbar
+                  </p>
+                </dd>
+              </dl>
+            </div>
+          </div>
+
+        <!--Tab about-->
+          <div class="tab-pane fade show active" id="AboutTab" role="tabpanel" aria-labelledby="BtnAbout">
+            <div class="container" style="max-width:500px">
+              <p class="presentation-text">
+              <!--
+                <img src="picture.png" alt="myself" style="width:200px;height:170px;margin-left:0px; float:right;">
+              -->
+                Welcome to my website. I am a mathematician working at the interface between analysis, probability, and geometry. Currently, I am a postdoctoral researcher at <a href="https://ist.ac.at/en/home/">IST Austria</a>, in the <a href="https://ist.ac.at/en/research/maas-group/">group</a> of <a href="https://www.janmaas.org/">Jan Maas</a>.
+              </p>
+              <p class="presentation-text">
+                Previously, I obtained my doctoral degree at <a href="https://wt.iam.uni-bonn.de/home/">IAM Bonn</a>, in the group of <a href="https://wt.iam.uni-bonn.de/sturm/home/">Karl-Theodor Sturm</a>. At IAM, I was part of the <a href="https://sfb1060.iam.uni-bonn.de/">Sfb&nbsp;1060</a> <em>The Mathematics of Emergent Effects</em> in <a href="https://sfb1060.iam.uni-bonn.de/project-groups/project-group-b/b03/">project B03</a> <em>Optimal transport and random measures</em>.
+              </p>
+              <p class="presentation-text">
+                I&nbsp;completed my bachelor and master studies in mathematics at <a href="https://www.mat.uniroma1.it/en">Sapienza</a> University in Rome.
+              </p>
+              <p class="presentation-text">
+                My CV can be downloaded <a href="./L_Dello_Schiavo_CV.pdf" download>here</a>.
+              </p>
+            </div>
+          </div>
+          <!--TAB Publications-->
+          <div class="tab-pane fade" id="PublicationsTab" role="tabpanel" aria-labelledby="BtnPublications">
+
+            <div class="container" style="max-width:620px">
+        		<!--Links-->
+        	    <div class="row justify-content-around mx-auto mb-4" style="margin-top: -20px; max-width:330px;">
+        	      <!--arXiv-->
+        	      <span style="font-size:16px">
+        	        <a href="https://arxiv.org/a/0000-0002-9881-6870.html" data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv ai-lg"></i></a>
+        	      </span>
+        	    <!--ResearchGate-->
+        	      <span>
+        	        <a href="https://www.researchgate.net/profile/Lorenzo_Dello_Schiavo" data-toggle="tooltip" target="_blank" title="ResearchGate"><i class="ai ai-researchgate-square ai-lg"></i></a>
+        	      </span>
+              <!--Scopus-->
+                <span>
+                  &emsp14;<a href="https://www.scopus.com/authid/detail.uri?authorId=56644772100" data-toggle="tooltip" target="_blank" title="Scopus"><i class="ai ai-elsevier-square ai-lg"></i></a>&emsp14;
+                </span>
+        	    <!--Scholar-->
+        	      <span>
+        	        <a href="https://scholar.google.com.ua/citations?hl=en&pli=1&user=QM0utaIAAAAJ" data-toggle="tooltip" target="_blank" title="Google Scholar"><i class="ai ai-google-scholar-square ai-lg"></i></a>
+        	      </span>
+        	    <!--Orcid-->
+        	      <span>
+        	        <a href="https://orcid.org/0000-0002-9881-6870" data-toggle="tooltip" target="_blank" title="Orcid"><i class="ai ai-orcid ai-lg"></i></a>
+        	      </span>
+        	    </div>
+
+              <div class="accordion" id="accordionPubs">
+                <!--Preprints-->
+                <h6>preprints</h6>
+                <ol class="list-unstyled" style="list-style: decimal;" reversed>
+
+                  <li class="card mt-2">
+                    <div class="card-header py-0" id="headingPreprint10">
+                      <button class="btn btn-sm px-0 py-2 btn-link btn-block text-left border-0 collapsed AccordionBtn" type="button" data-toggle="collapse" data-target="#preprint10" aria-expanded="true" aria-controls="preprint10">
+                        <li class="card-title">
+                          Scaling Limits of Random Walks, Harmonic Profiles, and Stationary Non-Equilibrium States in Lipschitz Domains
+                          <p class="card-author">
+                            <b>L. Dello&nbsp;Schiavo</b>, L. Portinale, F. Sau
+                          </p>
+                        </li>
+                      </button>
+                    </div>
+
+                    <div id="preprint10" class="collapse" aria-labelledby="headingPreprint10" data-parent="#accordionPubs">
+                      <div class="card-body border-bottom py-2">
+                        <p class="card-link">
+                          <a href=https://arxiv.org/abs/2112.14196 data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv ai-lg"></i></a>
+                        </p>
+                      </div>
+                      <div class="card-body">
+                        <p class="card-text">
+                          We consider the open symmetric exclusion (SEP) and inclusion (SIP) processes on a bounded Lipschitz domain $\Omega$, with both fast and slow boundary. For the random walks on $\Omega$ dual to SEP/SIP we establish: a functional-CLT-type convergence to the Brownian motion on $\Omega$ with either Neumann (slow boundary), Dirichlet (fast boundary), or Robin (at criticality) boundary conditions; the discrete-to-continuum convergence of the corresponding harmonic profiles. As a consequence, we rigorously derive the hydrodynamic and hydrostatic limits for SEP/SIP on $\Omega$, and analyze their stationary non-equilibrium fluctuations.
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+
+                  <li class="card mt-2">
+                    <div class="card-header py-0" id="headingPreprint9">
+                      <button class="btn btn-sm px-0 py-2 btn-link btn-block text-left border-0 collapsed AccordionBtn" type="button" data-toggle="collapse" data-target="#preprint9" aria-expanded="true" aria-controls="preprint9">
+                        <li class="card-title">
+                          Effective Contraction of Skinning Maps
+                          <p class="card-author">
+                            T. Cremaschi, <b>L. Dello&nbsp;Schiavo</b>
+                          </p>
+                        </li>
+                      </button>
+                    </div>
+
+                    <div id="preprint9" class="collapse" aria-labelledby="headingPreprint9" data-parent="#accordionPubs">
+                      <div class="card-body border-bottom py-2">
+                        <p class="card-link">
+                          <a href=https://arxiv.org/abs/2111.07472 data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv ai-lg"></i></a>
+                        </p>
+                      </div>
+                      <div class="card-body">
+                        <p class="card-text">
+                          Using elementary hyperbolic geometry, we give an explicit formula for the contraction constant of the skinning map over moduli spaces of relatively acylindrical hyperbolic manifolds.
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+
+            <!--  
+                  <li class="card mt-2">
+                    <div class="card-header py-0" id="headingPreprint8">
+                      <button class="btn btn-sm px-0 py-2 btn-link btn-block text-left border-0 collapsed AccordionBtn" type="button" data-toggle="collapse" data-target="#preprint8" aria-expanded="true" aria-controls="preprint8">
+                        <li class="card-title">
+                          Vertex insertion, Seiberg bounds, and renormalization for Liouville Conformal Field Theory on closed even-dimensional manifolds
+                          <p class="card-author">
+                            <b>L. Dello&nbsp;Schiavo</b>, R. Herry
+                          </p>
+                        </li>
+                      </button>
+                    </div>
+              -->
+
+                    <div id="preprint8" class="collapse" aria-labelledby="headingPreprint8" data-parent="#accordionPubs">
+                      <div class="card-body border-bottom py-2">
+                        <p class="card-link">
+                          <a href=https://arxiv.org/abs/ data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv ai-lg"></i></a>
+                        </p>
+                      </div>
+                      <div class="card-body">
+                        <p class="card-text">
+                          Abstract on vertices
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+
+                  <li class="card mt-2">
+                    <div class="card-header py-0" id="headingPreprint7">
+                      <button class="btn btn-sm px-0 py-2 btn-link btn-block text-left border-0 collapsed AccordionBtn" type="button" data-toggle="collapse" data-target="#preprint7" aria-expanded="true" aria-controls="preprint7">
+                        <li class="card-title">
+                          Configuration spaces over singular spaces &mdash; I. Dirichlet-Form and Metric Measure Geometry
+                          <p class="card-author">
+                            <b>L. Dello&nbsp;Schiavo</b>, K. Suzuki
+                          </p>
+                        </li>
+                      </button>
+                    </div>
+
+                    <div id="preprint7" class="collapse" aria-labelledby="headingPreprint7" data-parent="#accordionPubs">
+                      <div class="card-body border-bottom py-2">
+                        <p class="card-link">
+                          <a href=https://arxiv.org/abs/2109.03192 data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv ai-lg"></i></a>
+                        </p>
+                      </div>
+                      <div class="card-body">
+                        <p class="card-text">
+                          This paper is the first in a series on configuration spaces over singular spaces.
+                          Here, we construct a canonical differential structure on the configuration space&nbsp;$\Upsilon$ over a singular base space&nbsp;$X$ and with a general invariant measure&nbsp;$\mu$ on&nbsp;$\Upsilon$.
+                          <br>
+                          We first present an <i>analytic structure</i> on&nbsp;$\Upsilon$, constructing a strongly local Dirichlet form&nbsp;$\mathcal E$ on&nbsp;$L^2(\Upsilon, \mu)$ for&nbsp;$\mu$ in a large class of probability measures.
+                          We then investigate the <i>geometric structure</i> of the extended metric measure space&nbsp;$\Upsilon$ endowed with the $L^2$-transportation extended distance&nbsp;$\mathsf{d}_\Upsilon$ and with the measure&nbsp;$\mu$.
+                          By establishing various Rademacher- and Sobolev-to-Lipschitz-type properties for&nbsp;$\mathcal E$, we finally provide a complete identification of the analytic and the geometric structure &mdash;&nbsp;the <i>canonical differential structure</i> induced on&nbsp;$\Upsilon$ by&nbsp;$X$ and&nbsp;$\mu$&nbsp;&mdash; showing that&nbsp;$\mathcal E$ coincides with the Cheeger energy of $(\Upsilon,\mathsf{d}_\Upsilon,\mu)$ and that the intrinsic distance of&nbsp;$\mathcal E$ coincides with&nbsp;$\mathsf{d}_\Upsilon$.
+                          <br>
+                          The class of base spaces to which our results apply includes sub-Riemannian manifolds,&nbsp;$\mathsf{RCD}$ spaces, locally doubling metric measure spaces satisfying a local Poincaré inequality, and path/loop spaces over Riemannian manifolds; as for&nbsp;$\mu$, our results include Campbell measures and quasi-Gibbs measures, in particular: Poisson measures, canonical Gibbs measures, as well as some determinantal/permanental point processes (sine$_\beta$, Airy$_\beta$, Bessel$_{\alpha, \beta}$, Ginibre).
+                          <br>
+                          A number of applications to interacting particle systems and infinite-dimensional metric measure geometry are also discussed.
+                          In particular, we prove the quasi-regularity of&nbsp;$\mathcal E$ and consequently the existence of a Markov diffusion associated to&nbsp;$\mathcal E$ describing a $\mu$-invariant particle system.
+                          We further show the universality of the $L^2$-transportation distance&nbsp;$\mathsf{d}_\Upsilon$ for the Varadhan short-time asymptotics for diffusions on&nbsp;$\Upsilon$, regardless of the choice of&nbsp;$\mu$.
+                          Our approach does not rely on any relation between&nbsp;$\mu$ and a possible smooth structure on&nbsp;$X$.
+                          In particular, we assume no quasi-invariance property of&nbsp;$\mu$ w.r.t. actions of any group of transformations of&nbsp;$X$.
+                          Many of our results are new even in the case of standard Euclidean spaces.
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+
+                  <li class="card mt-2">
+                    <div class="card-header py-0" id="headingPreprint6">
+                      <button class="btn btn-sm px-0 py-2 btn-link btn-block text-left border-0 collapsed AccordionBtn" type="button" data-toggle="collapse" data-target="#preprint6" aria-expanded="true" aria-controls="preprint6">
+                        <li class="card-title">
+                          Ergodic decompositions of Dirichlet forms under order isomorphisms
+                          <p class="card-author">
+                            <b>L. Dello&nbsp;Schiavo</b>, M. Wirth
+                          </p>
+                        </li>
+                      </button>
+                    </div>
+
+                    <div id="preprint6" class="collapse" aria-labelledby="headingPreprint6" data-parent="#accordionPubs">
+                      <div class="card-body border-bottom py-2">
+                        <p class="card-link">
+                          <a href=https://arxiv.org/abs/2109.00615 data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv ai-lg"></i></a>
+                        </p>
+                      </div>
+                      <div class="card-body">
+                        <p class="card-text">
+                          We study ergodic decompositions of Dirichlet spaces under intertwining via unitary order isomorphisms. We show that the ergodic decomposition of a quasi-regular Dirichlet space is unique up to a unique isomorphism of the indexing space. Furthermore, every unitary order isomorphism intertwining two quasi-regular Dirichlet spaces is decomposable over their ergodic decompositions up to conjugation via an isomorphism of the corresponding indexing spaces.
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+
+									<li class="card mt-2">
+                    <div class="card-header py-0" id="headingPreprint5">
+                      <button class="btn btn-sm px-0 py-2 btn-link btn-block text-left border-0 collapsed AccordionBtn" type="button" data-toggle="collapse" data-target="#preprint5" aria-expanded="true" aria-controls="preprint5">
+                        <li class="card-title">
+                            Conformally Invariant Random Fields, Quantum Liouville Measures, and Random Paneitz Operators on Riemannian Manifolds of Even Dimension
+                          <p class="card-author">
+                            <b>L. Dello&nbsp;Schiavo</b>, R. Herry, E. Kopfer, K.-T. Sturm
+                          </p>
+                        </li>
+                      </button>
+                    </div>
+
+                    <div id="preprint5" class="collapse show" aria-labelledby="headingPreprint5" data-parent="#accordionPubs">
+                      <div class="card-body border-bottom py-2">
+                        <p class="card-link">
+                          <a href=https://arxiv.org/abs/2105.13925 data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv ai-lg"></i></a>
+                        </p>
+                      </div>
+                      <div class="card-body">
+                        <p class="card-text">
+                          For large classes of <i>even-dimensional</i> Riemannian manifolds $(M,g)$, we construct and analyze conformally invariant random fields. These centered Gaussian fields&nbsp;$h=h_g$, called <i>co-polyharmonic Gaussian  fields</i>, are  characterized by their covariance kernels&nbsp;$k$ which exhibit a precise logarithmic divergence: 
+                          $\big| k(x,y)-\log\frac{1}{d(x,y)} \big| \leq C$.
+                          They share the fundamental  quasi-invariance property under conformal transformations: if&nbsp;$g'=e^{2\varphi}g$, then
+                          $$
+                          h_{g'}\overset{\rm d}= e^{n\varphi} h_g-C\cdot \mathrm{vol}_{g'}
+                          $$
+                          with an appropriate random variable&nbsp;$C=C_\varphi$.
+
+                          In terms of the co-polyharmonic Gaussian field&nbsp;$h$, we define the <i>quantum Liouville measure</i>, a random measure on&nbsp;$M$,
+                          heuristically given as
+                          $$
+                            \mathrm{d}\mu_g^h(x):=  e^{\gamma h(x)-\frac{\gamma^2}2k(x,x)}\,\mathrm{dvol}_g(x)\,,
+                          $$
+                          and rigorously obtained as almost sure weak limit of the right-hand side with&nbsp;$h$ replaced by suitable regular approximations&nbsp;$h_\ell, \ell\in\mathbb N$.
+                          These measures share a crucial quasi-invariance property under conformal transformations: if $g'=e^{2\varphi}g$, then
+                          $$
+                            \mathrm{d}\mu^{h'}_{g'}(x)\overset{\rm (d)} = e^{F^h(x)}\,\mathrm{d}\mu_g^h(x)
+                          $$
+                          for an explicitly given random variable&nbsp;$F^h(x)$.
+
+                          In terms on the quantum Liouville measure, we define the <i>Liouville Brownian motion</i> on&nbsp;$M$ and the <i>random GJMS operators</i>.
+                          Finally, we present an approach to a conformal field theory in arbitrary even dimensions with an  ansatz based on Branson's $Q$-curvature: we give a rigorous meaning to the <i>Polyakov&mdash;Liouville measure</i>
+                          $$
+                            \mathrm{d}\boldsymbol{\nu}^*_g(h) =\frac{1}{Z^*_g} \exp\left(- \int \Theta\,Q_g h + m\, e^{\gamma h} \mathrm{dvol}_g\right) \exp\left(-\frac{a_n}{2} {\mathfrak p}_g(h,h)\right) \mathrm{d}h
+                          $$ 
+                          for suitable  positive constants&nbsp;$\Theta$,&nbsp;$m$,&nbsp;$\gamma$ and&nbsp;$a_n$, and we derive the corresponding <i>conformal anomaly</i>.
+
+                          The set of <i>admissible</i> manifolds is conformally invariant.
+                          It includes  all compact $2$-dimensional Riemannian manifolds, all compact non-negatively curved Einstein manifolds of even dimension, and large classes of compact hyperbolic manifolds of even dimension.
+                          However, not every compact even-dimensional Riemannian manifold is admissible.
+
+                          Our results concerning the logarithmic divergence of the  kernel&nbsp;$k$ &mdash; defined as the Green kernel for the GJMS operator on&nbsp;$(M,g)$ &mdash;  rely on new sharp estimates for heat kernels and higher order Green kernels on arbitrary compact manifolds.
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+
+                  <li class="card mt-2">
+                    <div class="card-header py-0" id="headingPreprint4">
+                      <button class="btn btn-sm px-0 py-2 btn-link btn-block text-left border-0 collapsed AccordionBtn" type="button" data-toggle="collapse" data-target="#preprint4" aria-expanded="true" aria-controls="preprint4">
+                        <li class="card-title">
+                            A Discovery Tour in Random Riemannian Geometry
+                          <p class="card-author">
+                            <b>L. Dello&nbsp;Schiavo</b>, E. Kopfer, K.-T. Sturm
+                          </p>
+                        </li>
+                      </button>
+                    </div>
+
+                    <div id="preprint4" class="collapse" aria-labelledby="headingPreprint4" data-parent="#accordionPubs">
+                      <div class="card-body border-bottom py-2">
+                        <p class="card-link">
+                          <a href=https://arxiv.org/abs/2012.06796 data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv ai-lg"></i></a>
+                        </p>
+                      </div>
+                      <div class="card-body">
+                        <p class="card-text">
+                          We study random perturbations of Riemannian manifolds $(\mathsf{𝖬},\mathsf{𝗀})$ by means of so-called Fractional Gaussian Fields, which are defined intrinsically by the given manifold. The fields $h^\bullet\colon \omega\mapsto h^\omega$ will act on the manifolds via conformal transformation $\mathsf{g}\mapsto \mathsf{g}^\omega\colon\!= e^{2h^\omega}\mathsf{g}$. Our focus will be on the regular case with Hurst parameter $H>0$, the celebrated Liouville geometry in two dimensions being borderline. We want to understand how basic geometric and functional analytic quantities like diameter, volume, heat kernel, Brownian motion, spectral bound, or spectral gap will change under the influence of the noise. And if so, is it possible to quantify these dependencies in terms of key parameters of the noise. Another goal is to define and analyze in detail the Fractional Gaussian Fields on a general Riemannian manifold, a fascinating object of independent interest.
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                </ol>
+
+              <!--Publications ordered list-->
+              <h6 class="mt-3">publications</h6>
+                <ol class="list-unstyled" style="list-style: decimal;" reversed>
+                  
+                  <!--2022-->
+                  <li class="card mt-2">
+                    <div class="card-header py-0" id="headingDFDiffusion">
+                      <button class="btn btn-sm px-0 py-2 btn-link btn-block text-left border-0 collapsed AccordionBtn" type="button" data-toggle="collapse" data-target="#DFDiffusion" aria-expanded="false" aria-controls="DFDiffusion">
+                        <li class="card-title">
+                          The Dirichlet-Ferguson Diffusion on the Space of Probability Measures over a Closed Riemannian Manifold
+                          <br>
+                          <i>Ann. Probab.</i> 50(2): 591-648 (2022)
+                          <p class="card-author">
+                            <b>L. Dello&nbsp;Schiavo</b>
+                          </p>
+                        </li>
+                      </button>
+                    </div>
+                    <div id="DFDiffusion" class="collapse" aria-labelledby="headingDFDiffusion" data-parent="#accordionPubs">
+                      <div class="card-body border-bottom py-2">
+                        <p class="card-link">
+                          <i class="ai ai-closed-access ai"></i>
+                          <a href=https://doi.org/10.1214/21-AOP1541 target="_blank">journal</a> &vert; <a href=https://arxiv.org/abs/1811.11598 data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv ai-lg"></i></a>
+                        </p>
+                      </div>
+                      <div class="card-body">
+                        <p class="card-text">
+                          We construct a recurrent diffusion process with values in the space of probability measures over an arbitrary closed Riemannian manifold of dimension $d\geq 2$. The process is associated with the Dirichlet form defined by integration of the Wasserstein gradient w.r.t. the Dirichlet-Ferguson measure, and is the counterpart on multi-dimensional base spaces to the Modified Massive Arratia Flow over the unit interval described in V. Konarovskyi, M.-K. von Renesse, <i>Comm. Pure Appl. Math.</i>, 72, 0764-0800 (2019). Together with two different constructions of the process, we discuss its ergodicity, invariant sets, finite-dimensional approximations, and Varadhan short-time asymptotics.
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+
+                  <!--2021-->
+                  <li class="card mt-2">
+                    <div class="card-header py-0" id="headingPaper2021-D">
+                      <button class="btn btn-sm px-0 py-2 btn-link btn-block text-left border-0 collapsed AccordionBtn" type="button" data-toggle="collapse" data-target="#Paper2021-D" aria-expanded="false" aria-controls="Paper2021-D">
+                        <li class="card-title">
+                            Sobolev-to-Lipschitz Property on $\mathsf{QCD}$-spaces and Applications
+                            <br>
+                            <i>Math. Ann.</i> (2021)
+                          <p class="card-author">
+                            <b>L. Dello&nbsp;Schiavo</b>, K. Suzuki
+                          </p>
+                        </li>
+                      </button>
+                    </div>
+
+                    <div id="Paper2021-D" class="collapse" aria-labelledby="headingPaper2021-D" data-parent="#accordionPubs">
+                      <div class="card-body border-bottom py-2">
+                        <p class="card-link">
+                          <i class="ai ai-open-access ai"></i>
+                          <a href=https://doi.org/10.1007/s00208-021-02331-2 target="_blank">journal</a> &vert;
+                          <a href=https://arxiv.org/abs/2110.05137 data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv ai-lg"></i></a>
+                        </p>
+                      </div>
+                      <div class="card-body">
+                        <p class="card-text">
+                          We prove the Sobolev-to-Lipschitz property for metric measure spaces satisfying the quasi curvature dimension condition recently introduced in E. Milman, <a href=https://arXiv.org/abs/1908.01513v5 target="_blank">The Quasi Curvature-Dimension Condition with applications to sub-Riemannian manifolds</a>, Comm. Pure Appl. Math. (to appear). We provide several applications to properties of the corresponding heat semigroup. In particular, under the additional assumption of infinitesimal Hilbertianity, we show the Varadhan short-time asymptotics for the heat semigroup with respect to the distance, and prove the irreducibility of the heat semigroup. These result apply in particular to large classes of (ideal) sub-Riemannian manifolds.  
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+
+                  <li class="card mt-2">
+                    <div class="card-header py-0" id="headingPaper2021-C">
+                      <button class="btn btn-sm px-0 py-2 btn-link btn-block text-left border-0 collapsed AccordionBtn" type="button" data-toggle="collapse" data-target="#Paper2021-C" aria-expanded="false" aria-controls="Paper2021-C">
+                        <li class="card-title">
+                            Rademacher-type Theorems and Varadhan Short-Time Asymptotics for Local Dirichlet Spaces
+                            <br>
+                            <i>J. Funct. Anal.</i> 281(11): 109234 (2021)
+                          <p class="card-author">
+                            <b>L. Dello&nbsp;Schiavo</b>, K. Suzuki
+                          </p>
+                        </li>
+                      </button>
+                    </div>
+
+                    <div id="Paper2021-C" class="collapse" aria-labelledby="headingPaper2021-C" data-parent="#accordionPubs">
+                      <div class="card-body border-bottom py-2">
+                        <p class="card-link">
+                          <i class="ai ai-closed-access ai"></i>
+                          <a href=https://doi.org/10.1016/j.jfa.2021.109234 target="_blank">journal</a> &vert;
+                          <a href=https://arxiv.org/abs/2008.01492 data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv ai-lg"></i></a>
+                        </p>
+                      </div>
+                      <div class="card-body">
+                        <p class="card-text">
+                          We extensively discuss the Rademacher and Sobolev-to-Lipschitz properties for generalized intrinsic distances on strongly local Dirichlet spaces possibly without square field operator. We present many non-smooth and infinite-dimensional examples. As an application, we prove the integral Varadhan short-time asymptotic with respect to a given distance function for a large class of strongly local Dirichlet forms.
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+
+                  <li class="card mt-2">
+                    <div class="card-header py-0" id="headingPaper2021-B">
+                      <button class="btn btn-sm px-0 py-2 btn-link btn-block text-left border-0 collapsed AccordionBtn" type="button" data-toggle="collapse" data-target="#Paper2021-B" aria-expanded="false" aria-controls="Paper2021-B">
+                        <li class="card-title">
+                          Ergodic Decomposition of Dirichlet Forms via Direct Integrals and Applications
+                          <br>
+                          <i>Potential Anal.</i> (2021)
+                          <p class="card-author">
+                            <b>L. Dello&nbsp;Schiavo</b>
+                          </p>
+                        </li>
+                      </button>
+                    </div>
+
+                    <div id="Paper2021-B" class="collapse" aria-labelledby="headingPaper2021-B" data-parent="#accordionPubs">
+                      <div class="card-body border-bottom py-2">
+                        <p class="card-link">
+                          <i class="ai ai-open-access ai"></i>
+                          <a href=https://doi.org/10.1007/s11118-021-09951-y target="_blank">journal</a> &vert; <a href=https://arxiv.org/abs/2003.01366 data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv ai-lg"></i></a>
+                        </p>
+                      </div>
+                      <div class="card-body">
+                        <p class="card-text">
+                          We study superpositions and direct integrals of quadratic and Dirichlet forms. We show that each quasi-regular Dirichlet space over a probability space admits a unique representation as a direct integral of irreducible Dirichlet spaces, quasi-regular for the same underlying topology. The same holds for each quasi-regular strongly local Dirichlet space over a metrizable Luzin, Radon measure space, and admitting carré du champ operator. In this case, the representation is only projectively unique.
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+
+                  <!--2020-->
+                  <li class="card mt-2">
+                    <div class="card-header py-0" id="headingPaper2020">
+                      <button class="btn btn-sm p-0 py-2 btn-link btn-block text-left border-0 collapsed AccordionBtn" type="button" data-toggle="collapse" data-target="#paper2020" aria-expanded="false" aria-controls="paper2020">
+                        <li class="card-title">
+                          A Rademacher-type Theorem on $L^2$-Wasserstein Spaces over Closed Riemannian Manifolds
+                          <br>
+                          <i>J. Funct. Anal.</i> 278(6):108397 (2020)
+                          <p class="card-author">
+                          	<b>L. Dello&nbsp;Schiavo</b>
+                          </p>
+                        </li>
+                      </button>
+                    </div>
+                    <div id="paper2020" class="collapse" aria-labelledby="headingPaper2020" data-parent="#accordionPubs">
+                      <div class="card-body border-bottom py-2">
+                        <p class="card-link">
+                          <i class="ai ai-closed-access ai"></i>
+                          <a href=https://doi.org/10.1016/j.jfa.2019.108397 target="_blank">journal</a> &vert; <a href=https://arxiv.org/abs/1810.10227 data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv ai-lg"></i></a>
+                        </p>
+                      </div>
+                      <div class="card-body">
+                        <p class="card-text">  
+                          Let $\mathbb P$ be any Borel probability measure on the $L^2$-Wasserstein space $(\mathscr{P}_2(M), W_2)$ over a closed Riemannian manifold $M$. We consider the Dirichlet form $\mathcal E$ induced by $\mathbb P$ and by the Wasserstein gradient on $\mathscr{P}_2(M)$. Under natural assumptions on $\mathbb P$, we show that $W_2$-Lipschitz functions on $\mathscr{P}_2(M)$ are contained in the Dirichlet space $\mathscr{D}(\mathcal E)$ and that $W_2$ is dominated by the intrinsic metric induced by $\mathcal E$. We illustrate our results by giving several detailed examples.
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+
+                  <!--2019 <h6 class="mt-3">2019</h6> -->
+                  <li class="card mt-2">
+                    <div class="card-header py-0" id="headingPaper2019">
+                      <button class="btn btn-sm p-0 py-2 btn-link btn-block text-left border-0 collapsed AccordionBtn" type="button" data-toggle="collapse" data-target="#paper2019" aria-expanded="false" aria-controls="paper2019">
+                        <li class="card-title">
+                          Characteristic Functionals of Dirichlet Measures
+                          <br>
+                          <i>Electron. J. Probab.</i> 24(155):1-38 (2019)
+                          <p class="card-author">
+                          	<b>L. Dello&nbsp;Schiavo</b>
+                          </p>
+                        </li>
+                      </button>
+                    </div>
+                    <div id="paper2019" class="collapse" aria-labelledby="headingPaper2019" data-parent="#accordionPubs">
+                      <div class="card-body border-bottom py-2">
+                        <p class="card-link">
+                          <i class="ai ai-open-access ai"></i>
+                          <a href=https://doi.org/10.1214/19-ejp371 target="_blank">journal</a> &vert; <a href=https://arxiv.org/abs/1810.09790 data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv ai-lg"></i></a>
+                        </p>
+                      </div>
+                      <div class="card-body">
+                        <p class="card-text">  
+                          We compute the characteristic functional of the Dirichlet–Ferguson measure over a locally compact Polish space and prove continuous dependence of the random measure on the parameter measure. In finite dimension, we identify the dynamical symmetry algebra of the characteristic functional of the Dirichlet distribution with a simple Lie algebra of type $A$. We study the lattice determined by characteristic functionals of categorical Dirichlet posteriors, showing that it has a natural structure of weight Lie algebra module and providing a probabilistic interpretation. A partial generalization to the case of the Dirichlet–Ferguson measure is also obtained.
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                
+                  <!--2016 <h6 class="mt-3">2016</h6> -->
+                  <li class="card mt-2">
+                    <div class="card-header py-0" id="headingPaper2016">
+                      <button class="btn btn-sm p-0 py-2 btn-link btn-block text-left border-0 collapsed AccordionBtn" type="button" data-toggle="collapse" data-target="#paper2016" aria-expanded="false" aria-controls="paper2016">
+                        <li class="card-title">
+                         	Complete integrability of information processing by biochemical reactions
+                         	<br>
+                         	<i>Sci. Rep.</i> 6:36314 (2016)
+                          <p class="card-author">
+                          	E. Agliari, A. Barra, <b>L. Dello&nbsp;Schiavo</b>, A. Moro
+                          </p>
+                        </li>
+                      </button>
+                    </div>
+                    <div id="paper2016" class="collapse" aria-labelledby="headingPaper2016" data-parent="#accordionPubs">
+                      <div class="card-body border-bottom py-2">
+                        <p class="card-link">
+                          <i class="ai ai-open-access ai"></i>
+                          <a href=https://doi.org/10.1038/srep36314 target="_blank">journal</a> &vert; <a href=https://arxiv.org/abs/1605.01624 data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv ai-lg"></i>
+                          </a>
+                        </p>
+                      </div>
+                      <div class="card-body">
+                        <p class="card-text">  
+                          Statistical mechanics provides an effective framework to investigate <i>information processing</i> in biochemical reactions. Within such framework far-reaching analogies are established among (<i>anti-</i>) <i>cooperative collective behaviors</i> in chemical kinetics, (<i>anti-</i>)<i>ferromagnetic spin models</i> in statistical mechanics and <i>operational amplifiers/flip-flops</i> in cybernetics. The underlying modeling – based on spin systems – has been proved to be accurate for a wide class of systems matching classical (e.g. Michaelis–Menten, Hill, Adair) scenarios in the infinite-size approximation. However, the current research in biochemical information processing has been focusing on systems involving a relatively small number of units, where this approximation is no longer valid. Here we show that the whole statistical mechanical description of reaction kinetics can be re-formulated via a mechanical analogy – based on completely integrable hydrodynamic-type systems of PDEs – which provides explicit finite-size solutions, matching recently investigated phenomena (e.g. noise-induced cooperativity, stochastic bi-stability, quorum sensing). The resulting picture, successfully tested against a broad spectrum of data, constitutes a neat rationale for a <i>numerically effective</i> and <i>theoretically consistent</i> description of collective behaviors in biochemical reactions.
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+
+                  <!--2015 <h6 class="mt-3">2015</h6> -->
+                  <li class="card mt-2">
+                    <div class="card-header py-0" id="headingPaper2015-B">
+                      <button class="btn btn-sm p-0 py-2 btn-link btn-block text-left border-0 collapsed AccordionBtn" type="button" data-toggle="collapse" data-target="#paper2015-B" aria-expanded="false" aria-controls="paper2015-B">
+                        <li class="card-title">
+                          Marcinkiewicz continuity estimates for infinite energy solutions of some second order elliptic Dirichlet problems
+													<br>
+                          <i>Boll. Unione Mat. Ital.</i> 8:97-112 (2015)
+                          <p class="card-author">
+                          	<b>L. Dello&nbsp;Schiavo</b>
+                          </p>
+                        </li>
+                      </button>
+                    </div>
+                    <div id="paper2015-B" class="collapse" aria-labelledby="headingPaper2015-B" data-parent="#accordionPubs">
+                      <div class="card-body border-bottom py-2">
+                        <p class="card-link">
+                          <i class="ai ai-closed-access ai"></i>
+                          <a href=https://doi.org/10.1007/s40574-015-0028-y target="_blank">journal</a> &vert; <span style="opacity:.2;"><i class="ai ai-arxiv ai-lg"></i></span>
+                        </p>
+                      </div>
+                      <div class="card-body">
+                        <p class="card-text">  
+                          Given a non-linear Dirichlet problem, we prove a result of continuous dependence, for both the solution and its gradient, on the zero order term in the case of low Marcinkiewicz summability for the latter, relying on the existence results and estimates recently proved in Boccardo (<i>Ann. Mat. Pura Appl.</i> 188(4):591–601, 2009). As a consequence, solutions obtained as limit of approximations are proved to be unique even in the infinite energy case.
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+
+                  <li class="card mt-2">
+                    <div class="card-header py-0" id="headingPaper2015-A">
+                      <button class="btn btn-sm p-0 py-2 btn-link btn-block text-left border-0 collapsed AccordionBtn" type="button" data-toggle="collapse" data-target="#paper2015-A" aria-expanded="false" aria-controls="paper2015-A">
+                        <li class="card-title">
+                          Notes on stochastic (bio)-logic gates: computing with allosteric cooperativity
+                          <br>
+                          <i>Sci. Rep.</i> 5:9415 (2015)
+                          <p class="card-author">
+                          	E. Agliari, M. Altavilla, A. Barra, <b>L. Dello&nbsp;Schiavo</b>, E. Katz
+                          </p>
+                        </li>
+                      </button>
+                    </div>
+                    <div id="paper2015-A" class="collapse" aria-labelledby="headingPaper2015-A" data-parent="#accordionPubs">
+                      <div class="card-body border-bottom py-2">
+                        <p class="card-link">
+                          <i class="ai ai-open-access ai"></i>
+                          <a href=https://doi.org/10.1038/srep09415 target="_blank">journal</a> &vert; <a href=https://arxiv.org/abs/1408.2725 data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv ai-lg"></i></a>
+                        </p>
+                      </div>
+                      <div class="card-body">
+                        <p class="card-text"> 
+                          Recent experimental breakthroughs have finally allowed to implement in-vitro reaction kinetics (the so called enzyme based logic) which code for two-inputs logic gates and mimic the stochastic AND (and NAND) as well as the stochastic OR (and NOR). This accomplishment, together with the already-known single-input gates (performing as YES and NOT), provides a logic base and paves the way to the development of powerful biotechnological devices. However, as biochemical systems are always affected by the presence of noise (e.g. thermal), standard logic is not the correct theoretical reference framework, rather we show that statistical mechanics can work for this scope: here we formulate a complete statistical mechanical description of the Monod–Wyman–Changeaux allosteric model for both single and double ligand systems, with the purpose of exploring their practical capabilities to express noisy logical operators and/or perform stochastic logical operations. Mixing statistical mechanics with logics and testing quantitatively the resulting findings on the available biochemical data, we successfully revise the concept of cooperativity (and anti-cooperativity) for allosteric systems, with particular emphasis on its computational capabilities, the related ranges and scaling of the involved parameters and its differences with classical cooperativity (and anti-cooperativity).
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                </ol>
+
+                <h6>phd thesis</h6>
+                <ol start="0">
+                  <div class="card mt-2">
+                    <div class="card-header py-0" id="headingThesisPhD">
+                      <button class="btn btn-sm p-0 py-2 btn-link btn-block text-left border-0 collapsed AccordionBtn" type="button" data-toggle="collapse" data-target="#thesisPhD" aria-expanded="false" aria-controls="thesisPhD">
+                        <li class="card-title">Diffusions on Wasserstein Spaces
+                          <p class="card-author">
+                            <b>L. Dello&nbsp;Schiavo</b>
+                          </p>
+                        </li>
+                      </button>
+                    </div>
+                    <div id="thesisPhD" class="collapse" aria-labelledby="headingThesisPhD" data-parent="#accordionPubs">
+                      <div class="card-body border-bottom py-2">
+                        <p class="card-link">
+                          <i class="ai ai-open-access ai"></i>
+                          <a href=http://hdl.handle.net/20.500.11811/8346 target="_blank">ULB</a>
+                        </p>
+                      </div>
+                      <div class="card-body">
+                        <p class="card-text"> 
+                          We construct a canonical diffusion process on the space of probability measures over a closed Riemannian manifold, with invariant measure the Dirichlet–Ferguson measure. Together with a brief survey of the relevant literature, we collect several tools from the theory of point processes and of optimal transportation. Firstly, we study the characteristic functional of Dirichlet–Ferguson measures with non-negative finite intensity measure over locally compact Polish spaces. We compute such characteristic functional as a martingale limit of confluent Lauricella hypergeometric functions of type&nbsp;$D$ with diverging arity. Secondly, we study the interplay between the self-conjugate prior property of Dirichlet distributions in Bayesian non-parametrics, the dynamical symmetry algebra of said Lauricella functions and Pólya Enumeration Theory.
+                          Further, we provide a new proof of J. Sethuraman’s fixed point characterization of Dirichlet–Ferguson measures, and an understanding of the latter as an integral identity of Mecke- or Georgii–Nguyen–Zessin-type.
+                          Thirdly, we prove a Rademacher-type result on the Wasserstein space over a closed Riemannian manifold. Namely, sufficient conditions are given for a probability measure $\mathbb{P}$ on the Wasserstein space, so that real-valued Lipschitz functions be $\mathbb{P}$-a.e. differentiable in a suitable sense. Some examples of measures satisfying such conditions are also provided. Finally, we give two constructions of a Markov diffusion process with values in the said Wasserstein space. The process is associated with the Dirichlet integral induced by the Wasserstein gradient and by the Dirichlet–Ferguson measure with intensity the Riemannian volume measure of the base manifold. We study the properties of the process, including its invariant sets, short-time asymptotics for the heat kernel, and a description by means of a stochastic partial differential equation.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </ol>
+
+              </div>
+            </div>
+          </div>
+
+          <!--TAB Research-->
+          <div class="tab-pane fade" id="ResearchTab" role="tabpanel" arialabelledby="BtnResearch">
+            <div class="container" style="max-width:560px">
+              <p class="presentation-text">
+                My current research focus is on the Dirichlet-forms approach to Markov diffusions on non-flat infinite-dimensional spaces, in particular <em>Wasserstein</em> and <em>configuration</em> spaces.
+              </p>
+
+              <p class="presentation-text">
+                <b>Random Riemannian Geometry</b>
+              </p>
+
+                <p style="text-align: center; padding-bottom: 15px; padding-left: 15px; float: right; display: block; line-height: 80%;"><img src="GMC25.png" alt="GaussianMulticativeChaos25.png" width="200" height="170" data-api-endpoint="GMC25.png" data-api-returntype="File"/><br/><span style="font-size: 10px; line-height: 80%;">truncated Fourier-series expansion of<br>the LQG measure on 2D unit torus</span></p>
+
+                <p class="presentation-text">
+                Together with <a href="http://ronanherry.org/">Ronan Herry</a>, and PIs <a href="https://wt.iam.uni-bonn.de/kopfer/home">Eva Kopfer</a>, and <a href="https://wt.iam.uni-bonn.de/sturm/home/">Karl-Theodor Sturm</a>, I am a member of <a href="https://spp2265.wias-berlin.de/project.php?projectID=39">Projekt 15</a> <em>Random Riemannian Geometry</em> within the DFG Priority Programme <a href="https://spp2265.wias-berlin.de/">SPP 2265</a>.
+                We are studying Liouville Quantum Gravity on closed Riemannian manifolds $(M,g)$ of even dimension $n\geq 2$. In order to obtain a <i>conformal</i> field theory, we replace the standard Laplace–Beltrami operator with its conformally covariant counterpart, the Graham–Jenne–Mason–Sparling operator of critical order $n/2$.
+                </p>
+
+              <p class="presentation-text">
+                <b>Analysis and Geometry on Spaces of Measures</b>
+              </p>
+                <p class="presentation-text">
+                  I am broadly interested in the interplay among analysis, stochastic analysis, and (metric measure) geometry on spaces of measures, and in particular spaces of probability measures and spaces of configurations.
+                </p>
+
+                <p style="text-align: center; padding-bottom: 15px; padding-right: 15px; float: left; display: block; line-height: 80%;"><img src="Dirichlet.png" alt="DirichletFergusonSample.png" width="200" height="170" data-api-endpoint="GMC25.png" data-api-returntype="File"/><br/><span style="font-size: 10px; line-height: 80%;">a $\mathcal{D}$-typical measure on the square</span></p>
+                
+                <p class="presentation-text">
+                  <i>Probabilities measures.</i>&emsp; My <a href="#headingThesisPhD" id="ThesisLink">PhD thesis</a> contains two constructions of the <a href="#headingDFDiffusion" id="DFDiffusionLink">Dirichlet–Ferguson diffusion</a> on the $L^2$-Wasserstein space $\mathscr{P}_2(M)$ over any closed Riemannian manifold $(M,g)$ of dimension $d\geq 2$.
+                  This process can be regarded as the canonical diffusion process induced by the geometry of $\mathscr{P}_2$ and by the Dirichlet–Ferguson measure $\mathcal{D}_{m_g}$ with intensity measure the Riemannian volume $m_g$.
+                  It is the multi-dimensional analog of Konarovskyi's Modified Massive Arratia Flow, but no coalescence occurs, by reason of the dimension of $M$.
+                  The construction required a thorough study of the Dirichlet–Ferguson measure, and a Rademacher-type theorem for general measures on $\mathscr{P}_2(M)$.
+                </p>
+
+                <p class="presentation-text">
+                  <i>Configurations.</i>&emsp; Together with <a href="https://ksuzukimath.jimdofree.com/">Kohei Suzuki</a>, we are developing a comprehensive analytical and geometric framework for the study of diffusions on the configuration space $\Upsilon$ over a metric measure space $(X,d,m)$.
+                  Typically, $\Upsilon$ will be endowed with a quasi-Gibbs probability reference measure $\mu$ and with the $L^2$-transportation distance $d_\Upsilon$ induced by $d$.
+                  As a first cornerstone in the theory, we show that &horbar;&nbsp;under quite general assumptions on $X$ and $\mu$&nbsp;&horbar; the metric measure structure of $(\Upsilon,d_\Upsilon,\mu)$ coincides with the Dirichlet space structure on $\Upsilon$ inherited from $X$.
+                </p>                
+
+              <p class="presentation-text">
+                <b>Non-smooth Spaces and Dirichlet Spaces</b>
+              </p>
+              <p class="presentation-text">
+                Part of my research is focused on abstract Dirichlet spaces, approached in full generality.
+                The main contributions are: the construction of ergodic decompositions for general quasi-regular strongly local Dirichlet spaces; a study behavior of these decompositions under the action of order isomorphisms (with <a href="https://www.researchgate.net/profile/Melchior-Wirth">Melchior Wirth</a>); a study of the metric properties of intrinsic distances, and in particular of the Rademacher and Sobolev-to-Lipschitz properties, and of Varadhan integral-type short-time asymptotics for the heat semigroup (with K. Suzuki).
+              </p>
+
+              <p class="presentation-text">
+                <b>Biological Cybernetics</b>
+              </p>
+                <p class="presentation-text">
+                  During my master studies, my main interests lay in optimal transport and second-order elliptic PDEs in divergence form. Also, I was a member of <a href="https://www.adrianobarra.com">Adriano Barra</a>&apos;s research group on <a href="https://www.adrianobarra.com/biological-cybernetics.html"><em>biological cybernetics</em></a>.
+                </p>
+            </div>
+          </div>
+
+          <!--TAB SciPop-->
+          <div class="tab-pane fade" id="SciPopTab" role="tabpanel" arialabelledby="BtnSciPop">
+            <div class="container" style="max-width:560px">
+              <div class="accordion" id="accordionSciPop">
+
+              <!--SCI-POP-->
+              <h6>popularization of science</h6>
+              <ol class="list-unstyled" style="list-style: decimal;" reversed>
+                <li class="card mt-2">
+                  <div class="card-header py-0" id="headingSciPop2018">
+                    <button class="btn btn-sm p-0 py-2 btn-link btn-block text-left border-0 collapsed AccordionBtn" type="button" data-toggle="collapse" data-target="#SciPop2018" aria-expanded="false" aria-controls="SciPop2018">
+                      <li class="card-title">
+                        La quantità del nulla, <i>Ithaca</i> X (2018, in Italian)
+                        <br>
+                        <p class="card-author">
+                        	<b>L. Dello&nbsp;Schiavo</b>, A. Baccaglini-Frank
+                        </p>
+                      </li>
+                    </button>
+                  </div>
+                  <div id="SciPop2018" class="collapse" aria-labelledby="headingSciPop2018" data-parent="#accordionSciPop">
+                    <div class="card-body border-bottom py-2">
+                      <p class="card-link">
+                        <i class="ai ai-open-access ai"></i>
+                        <a href=http://siba-ese.unile.it/index.php/ithaca/article/view/18524 target="_blank">journal</a> &vert; <span style="opacity:.2;"><i class="ai ai-arxiv ai-lg"></i></span>
+                      </p>
+                    </div>
+                    <div class="card-body">
+                      <p class="card-text">  
+                        $0$ zero, ovvero la quantità del nulla. Un'idea che — assieme a quella gemella di insieme vuoto — ha segnato la storia della matematica attraverso i secoli e i continenti, ben al di là dell'introduzione dei sistemi numerici posizionali o degli interi relativi.
+                      <br>
+                        $\emptyset$ vuoto, ovvero l'insieme privo di elementi ed unico sottoinsieme di sé, ogni elemento del quale soddisfa ogni proprietà: adynaton per la filosofia antica, paradosso per quella moderna, commodité irrinunciabile per la matematica contemporanea. Dell'uso di questi due concetti, intimamente legati, cercheremo di fornire una storia breve, corredata dalle fonti originali dall'antichità ai giorni nostri ed arricchita da curiosità matematiche, accennando poi a come alcune tappe storiche segnino delicati passaggi cognitivi nel loro apprendimento.
+                      </p>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="card mt-2">
+                  <div class="card-header py-0" id="headingSciPop2010">
+                    <button class="btn btn-sm p-0 py-2 btn-link btn-block text-left border-0 collapsed AccordionBtn" type="button" data-toggle="collapse" data-target="#SciPop2010" aria-expanded="false" aria-controls="SciPop2010">
+                      <li class="card-title">
+                        Nature of language vs. language of nature &mdash; The limits of human languages in describing nature, in A. Altamore, G. Antonini <i>Galileo and the renaissance scientific discourse</i>, Edizioni Nuova Cultura (2010)
+                        <p class="card-author">
+                        	G. Cecchetti, <b>L. Dello&nbsp;Schiavo</b>
+                        </p>
+                      </li>
+                    </button>
+                  </div>
+                  <div id="SciPop2010" class="collapse" aria-labelledby="headingSciPop2010" data-parent="#accordionSciPop">
+                    <div class="card-body border-bottom py-2">
+                      <p class="card-link">
+                        <span style="opacity:.2;">book</span> &vert; <span style="opacity:.2;"><i class="ai ai-arxiv ai-lg"></i></span>
+                      </p>
+                    </div>
+                    <div class="card-body">
+                      <p class="card-text">
+                        The composition of scientific and humanistic ambits of experience rises on one hand from a concrete necessity of our culture as in didactical purposes; but if we look at the problem by a more abstract point of view it is possible to follow the same principles that lead Gödel and Wittgenstein to define the limits of mathematical and verbal language in order to highlight the complementarity of their expressive potentialities.
+                      </p>
+                    </div>
+                  </div>
+                </li>
+              </ol>
+
+              <br>
+              <br>
+
+              <!--WOLFRAM DEMO PROJECT-->
+                <a href="https://demonstrations.wolfram.com/" target="_blank">
+                  <h6>
+                    Wolfram Demonstration Project 
+                  </h6>
+                </a>
+                <blockquote>
+                  <p style="font-size:12px" align="justify">
+                    <i class="fa fa-quote-left fa-pull-left fa-border" aria-hidden="true"></i>
+                    <i>Every Demonstration undergoes a rigorous review process that checks for quality, clarity and accuracy with standards similar to those of traditional academic publications.
+                    </i>     
+                  </p>
+                  <p style="font-size:11px" align="right">
+                    from the WDP <a href=https://demonstrations.wolfram.com/about.php target="_blank">FAQs</a> 
+                  </p>
+                </blockquote>
+
+                <ol class="list-unstyled" style="list-style: decimal;" reversed>
+                  <!--ASEP-->
+                  <li class="card mt-2">
+                    <div class="card-header py-0" id="headingWDP3">
+                      <button class="btn btn-sm p-0 py-2 btn-link btn-block text-left border-0 AccordionBtn" type="button" data-toggle="collapse" data-target="#WDP3" aria-expanded="true" aria-controls="WDP3">
+                        <li class="card-title">
+                          Asymmetric Simple Exclusion Processes (2018)
+                          <p class="card-author">
+                          	A. Occelli, <b>L. Dello&nbsp;Schiavo</b>
+                          </p>
+                        </li>
+                      </button>
+                    </div>
+                    <div id="WDP3" class="collapse show" aria-labelledby="headingWDP3" data-parent="#accordionSciPop">
+                      <div class="card-body border-bottom py-2">
+                        <p class="card-link">
+                          <a href="https://demonstrations.wolfram.com/AsymmetricSimpleExclusionProcesses/" target="_blank">WDP
+                          </a>
+                        </p>
+                      </div>
+                      <div class="card-body">
+                        <p class="card-text">  
+                          This Demonstration shows the evolution of a partially asymmetric simple exclusion process (PASEP) on the integer lattice $\mathbb{Z}.$ In PASEP, a particle waits an exponential amount of time, then moves to the right with probability $p$ or to the left with probability $1-p$, unless the site is occupied. In the case $p=1$, the dynamic is totally asymmetric, and the process is known as a totally asymmetric simple exclusion process (TASEP).
+                        </p>
+                        
+                      <!--codice corretto ma non funzionante causa WDP  
+                        <iframe width='800' height='400' src='https://www.wolframcloud.com/obj/82321d43-db78-4aba-a70b-fa42dee6076c' frameborder='0'>
+                        </iframe>
+                      -->
+                      </div>
+                    </div>
+                  </li>
+
+                  <!--Homogeneous Splines-->
+                  <li class="card mt-2">
+                    <div class="card-header py-0" id="headingWDP2">
+                      <button class="btn btn-sm p-0 py-2 btn-link btn-block text-left border-0 collapsed AccordionBtn" type="button" data-toggle="collapse" data-target="#WDP2" aria-expanded="false" aria-controls="WDP2">
+                        <li class="card-title">
+                          Homogeneous Splines (2014)
+                          <p class="card-author">
+                          	<b>L. Dello&nbsp;Schiavo</b>
+                          </p>
+                        </li>
+                      </button>
+                    </div>
+                    <div id="WDP2" class="collapse" aria-labelledby="headingWDP2" data-parent="#accordionSciPop">
+                      <div class="card-body border-bottom py-2">
+                        <p class="card-link">
+                          <a href="https://demonstrations.wolfram.com/HomogeneousSplines/" target="_blank">WDP
+                          </a>
+                        </p>
+                      </div>
+                      <div class="card-body">
+                        <p class="card-text">  
+                          This demonstration helps visualizing Runge's phenomenon in spline intepolation.
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                
+                  <!--Zonotope-->
+                  <li class="card mt-2">
+                    <div class="card-header py-0" id="headingWDP1">
+                      <button class="btn btn-sm p-0 py-2 btn-link btn-block text-left border-0 collapsed AccordionBtn" type="button" data-toggle="collapse" data-target="#WDP1" aria-expanded="false" aria-controls="WDP1">
+                        <li class="card-title">
+                          Zonotope Construction via Shephard's Theorem (2014)
+                          <p class="card-author">
+                          	<b>L. Dello&nbsp;Schiavo</b>
+                          </p>
+                        </li>
+                      </button>
+                    </div>
+                    <div id="WDP1" class="collapse" aria-labelledby="headingWDP1" data-parent="#accordionSciPop">
+                      <div class="card-body border-bottom py-2">
+                        <p class="card-link">
+                          <a href="https://demonstrations.wolfram.com/ZonotopeConstructionViaShephardsTheorem/" target="_blank">WDP
+                          </a>
+                        </p>
+                      </div>
+                      <div class="card-body">
+                        <p class="card-text">  
+                          Given $X=\{a_1,\dotsc, a_r\}$ a set of generators for $\mathbb{R}^n$, the zonotope $\mathcal{Z}(X)$ generated by $X$ is the convex hull of all vectors of the form $\sum_{a\in X} a$; that is, $\mathcal{Z}(X)$ is the Minkowski sum of all segments $[0,a]$, where $a\in X$. Also, $\mathcal{Z}(X)$ is the shadow of the $r$-dimensional cube $[0,1]^r$ via the projection $(t_1,\dotsc, t_r)\mapsto \sum_i^r t_i a_i$.
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  <!--Colophon-->
+    <div class="colophon container fixed-bottom" style="opacity:.5; padding-bottom: 50px;">
+    </div>
+
+    <div class="container mt-auto mb-0 fixed-bottom">
+      <div class="colophon d-flex justify-content-center mx-auto pb-1 pt-1 mt-3">
+        <span style="font-size:10px; text-align: center">
+          Powered by: &emsp; <i class="fa fa-css3"></i> &emsp; Bootstrap &emsp; <i class="fa fa-html5"></i> &emsp; MathJax &emsp; <i class="fa fa-font-awesome"></i>
+        <br>
+          © 2022 Copyright: Lorenzo Dello Schiavo
+        </span>
+      </div>
+    </div>
+
+  </main>
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+  <!-- TOOLTIP-->
+    <script>
+      $(document).ready(function(){
+       $('[data-toggle="tooltip"]').tooltip();   
+      });
+    </script>
+
+  <!--navbar show labels script-->
+    <script>
+      $(document).ready(function(){
+              $(".navbar-btn").mouseenter(function(){
+                const $target = $($(this).attr("target"));
+                if ($target.css('display') !== 'none') {
+                  $target.stop(true, false).animate({ width: "+=100px" }, 1500, "linear");
+                }
+              });
+            });
+            $(document).ready(function(){
+              $(".navbar-btn").mouseleave(function(){
+                const $target = $($(this).attr("target"));
+                if ($target.css('display') !== 'none') {
+                  $target.stop(true, false).animate({ width: "-=100px" }, 1500, "linear");
+                }
+              });
+            });
+    </script>
+
+    <script>
+    	$(document).ready(function(){
+    		$("#ThesisLink").click(function(){
+    			$("#ResearchTab").removeClass("show active")
+    			$("#PublicationsTab").addClass("show active")
+
+    			$("#BtnResearch").removeClass("active")
+    			$("#BtnPublications").addClass("active")
+    		});
+    	});
+
+      $(document).ready(function(){
+        $("#DFDiffusionLink").click(function(){
+          $("#ResearchTab").removeClass("show active")
+          $("#PublicationsTab").addClass("show active")
+
+          $("#BtnResearch").removeClass("active")
+          $("#BtnPublications").addClass("active")
+        });
+      });
+    </script>
+
+    <!--Boostrap 5 accordion refocus
+    <script>
+      $('.collapse').on('shown.bs.collapse', function(e) {
+        var $card = $(this).closest('.accordion-item');
+        var $open = $($(this).data('parent')).find('.collapse.show');
+        
+        var additionalOffset = 0;
+        if($card.prevAll().filter($open.closest('.accordion-item')).length !== 0)
+        {
+              additionalOffset =  $open.height();
+        }
+        $('html,body').animate({
+          scrollTop: $card.offset().top - additionalOffset
+        }, 100);
+      });
+    </script>
+  -->
+
+    <!--Passive event listener for Google Maps API-->
+    <script>
+      $(document).ready(function () {
+            if (typeof EventTarget !== "undefined") {
+                let func = EventTarget.prototype.addEventListener;
+                EventTarget.prototype.addEventListener = function (type, fn, capture) {
+                    this.func = func;
+                    if(typeof capture !== "boolean"){
+                        capture = capture || {};
+                        capture.passive = false;
+                    }
+                    this.func(type, fn, capture);
+                };
+            };
+        }());
+    </script>
+  
+  </body>
+</html>
