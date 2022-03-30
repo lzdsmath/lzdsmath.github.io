@@ -225,6 +225,19 @@
       background-color: white;
       opacity:.80;
     }
+
+
+    /*EQUATIONS*/
+    .displayed_equation_wrap {
+        width: 100%;
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+    }
+    .equation {
+        width: 100%;
+        overflow-x: auto;
+    }
   </style>
 </head>
 
@@ -737,9 +750,13 @@
 
                           In terms on the quantum Liouville measure, we define the <i>Liouville Brownian motion</i> on&nbsp;$M$ and the <i>random GJMS operators</i>.
                           Finally, we present an approach to a conformal field theory in arbitrary even dimensions with an  ansatz based on Branson's $Q$-curvature: we give a rigorous meaning to the <i>Polyakov&mdash;Liouville measure</i>
-                          $$
-                            \mathrm{d}\boldsymbol{\nu}^*_g(h) =\frac{1}{Z^*_g} \exp\left(- \int \Theta\,Q_g h + m\, e^{\gamma h} \mathrm{dvol}_g\right) \exp\left(-\frac{a_n}{2} {\mathfrak p}_g(h,h)\right) \mathrm{d}h
-                          $$ 
+                          <span class=displayed_equation_wrap>
+                            <span class=equation>
+                              $$
+                                \mathrm{d}\boldsymbol{\nu}^*_g(h) =\frac{1}{Z^*_g} \exp\left(- \int \Theta\,Q_g h + m\, e^{\gamma h} \mathrm{dvol}_g\right) \exp\left(-\frac{a_n}{2} {\mathfrak p}_g(h,h)\right) \mathrm{d}h
+                              $$
+                            </span>
+                          </span>
                           for suitable  positive constants&nbsp;$\Theta$,&nbsp;$m$,&nbsp;$\gamma$ and&nbsp;$a_n$, and we derive the corresponding <i>conformal anomaly</i>.
 
                           The set of <i>admissible</i> manifolds is conformally invariant.
