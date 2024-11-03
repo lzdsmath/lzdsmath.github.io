@@ -30,7 +30,7 @@
     MathJax.Hub.Config({
       jax: ["input/TeX", "output/HTML-CSS"],
       extensions: ["tex2jax.js"],
-      "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] },
+      "HTML-CSS": { preferredFont: "TeX", availableFonts: ["MathJax TeX","TeX"] },
       tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], displayMath: [ ["$$","$$"], ["\\[", "\\]"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno" },
       TeX: { noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "80%" } } },
       messageStyle: "none"
@@ -184,19 +184,19 @@
 
   /* unvisited link */
   a:link {
-    color: darkslategray;
+    color: #1d548a;
   }
   /* visited link */
   a:visited {
-    color: darkslategray;
+    color: #1d548a;
   }
   /* mouse over link */
   a:hover {
-    color: darkslategray;
+    color: #1d548a;
   }
   /* selected link */
   a:active {
-    color: darkslategray;
+    color: #1d548a;
   }
 
   /*Accordion button*/
@@ -204,7 +204,7 @@
     box-shadow:none !important;
     outline:0px !important;
     font-size:13px;
-    color: DarkSlateGray !important;
+    color: #1d548a !important;
     white-space: normal !important;
     padding-top: 4px !important;
     padding-bottom: 5px !important;
@@ -348,11 +348,22 @@
               <h6>upcoming events</h6>
               <dl style="font-size:13px">
 
+                <dt>19–22/11/24</dt>
+                <dd>
+                  <a href="https://sites.google.com/view/pepperschool/">Probability Event: Point Processes, Exchange & Research</a>, University of Münster, Münster, DE
+                </dd>
+
               </dl>
 
               <h6>some past events</h6>
 
               <dl style="font-size:13px">
+
+                <dt>28–31/10/24</dt>
+                <dd>
+                  <a href="https://spp2265.wias-berlin.de/">SPP 2265</a> <em>Random Geometric Systems</em>
+                  <a href="https://www.wias-berlin.de/workshops/An_2024_RaGeSys/">Third Annual Conference</a>, Harnack-Haus, Berlin, DE
+                </dd>
                 
                 <dt>22/09-1/10/24</dt>
                 <dd>
@@ -664,20 +675,20 @@
               <div class="column mx-auto">
                 <!-- IST ADDRESS-->
                 <span style="font-size:14px">
-                  <a href="https://ist.ac.at/en/home/" target="_blank">ISTA</a>
+                  <a href="https://ist.ac.at/en/home/" target="_blank">Dipartimento di Matematica &mdash; Università degli Studi di Roma Tor Vergata</a>
                 </span>
 
                 <div class="ml-2" style="font-size:13px">
                   <div class="media">
                     <div class="align-self-center mr-3">
-                      <a class="fa fa-map-marker fa-lg" href="https://www.google.com/maps/place/Lab+Building+West+I21/@48.3100088,16.2558542,17z/data=!3m1!4b1!4m5!3m4!1s0x476d0c2221b3ae55:0x3ef519bdf369985e!8m2!3d48.3100088!4d16.258043"></a>
+                      <a class="fa fa-map-marker fa-lg" href="https://www.google.it/maps/place/Macroarea+di+Scienze+Matematiche+Fisiche+e+Naturali+-+Universit%C3%A0+di+Roma+Tor+Vergata/@41.8527603,12.6037826,17z/data=!3m1!4b1!4m6!3m5!1s0x132587f9328c769b:0x1391be005eeb11f9!8m2!3d41.8527603!4d12.6037826!16s%2Fg%2F1262rygqy?entry=ttu&g_ep=EgoyMDI0MTAyOS4wIKXMDSoASAFQAw%3D%3D"></a>
                     </div>
                     <div class="media-body">
-                      Office&nbsp;Building&nbsp;West&nbsp;I21
+                      Macroarea di <a href="https://scienze.uniroma2.it/">Scienze MM. FF. NN.</a>
                       <br>
-                      Am Campus 1
+                      Via della Ricerca Scientifica 1,
                       <br>
-                      3400&nbsp;Klosterneuburg
+                      00133&nbsp;Roma
                     </div>
                   </div>
                 </div>
@@ -688,7 +699,7 @@
                 </span>
               </div>
 
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2653.6278343210897!2d16.255854215655017!3d48.31000877923749!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476d0c2221b3ae55%3A0x3ef519bdf369985e!2sLab%20Building%20West%20I21!5e0!3m2!1sit!2sde!4v1593211014891!5m2!1sit!2sde" width="600" height="400" frameborder="0" style="border:0; margin-top: 3rem;" allowfullscreen="" aria-hidden="false" tabindex="0">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2971.8637078680163!2d12.6037826!3d41.8527603!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132587f9328c769b%3A0x1391be005eeb11f9!2sMacroarea%20di%20Scienze%20Matematiche%20Fisiche%20e%20Naturali%20-%20Universit%C3%A0%20di%20Roma%20Tor%20Vergata!5e0!3m2!1sen!2sat!4v1730475890354!5m2!1sen!2sat" width="600" height="400" frameborder="0" style="border:0; margin-top: 3rem;" allowfullscreen="" aria-hidden="false" tabindex="0">
               </iframe>
             </div>
           </div>
@@ -788,11 +799,12 @@
               <!--
                 <img src="picture.png" alt="myself" style="width:200px;height:170px;margin-left:0px; float:right;">
               -->
-                Welcome! I am a mathematician working at the interface between analysis, probability, and geometry, and a postdoctoral researcher at the <a href="https://ist.ac.at/en/home/" target="_blank">Institute of Science and Technology Austria (ISTA)</a> in the <a href="https://ist.ac.at/en/research/maas-group/" target="_blank">group</a> of <a href="https://www.janmaas.org/" target="_blank">Jan Maas</a>.
+                Welcome! I am a mathematician working at the interface between analysis, probability, and geometry, and a tenure-track Assistant Professor at the <a href="https://www.mat.uniroma2.it/english2.php">Università degli Studi di Roma "Tor Vergata"</a>.
               </p>
 
               <p class="presentation-text">
-                At present, I am principal investigator of the project <a href="#EspritProject" id="EspritLink"</a><em>Configuration Spaces over non-smooth Spaces</em></a> funded by the Austrian Science Fund (FWF) under the Early-Stage-Programme: Research–Innovation–Training (<a href="https://www.fwf.ac.at/en/research-funding/fwf-programmes/esprit-programme" target="_blank">ESPRIT</a>).
+                Until October 2024, I was a postdoctoral researcher at the
+                <a href="https://ist.ac.at/en/home/" target="_blank">Institute of Science and Technology Austria (ISTA)</a> in the <a href="https://ist.ac.at/en/research/maas-group/" target="_blank">group</a> of <a href="https://www.janmaas.org/" target="_blank">Jan Maas</a>, and the principal investigator of the project <a href="#EspritProject" id="EspritLink"</a><em>Configuration Spaces over non-smooth Spaces</em></a> funded by the Austrian Science Fund (FWF) under the Early-Stage-Programme: Research–Innovation–Training (<a href="https://www.fwf.ac.at/en/research-funding/fwf-programmes/esprit-programme" target="_blank">ESPRIT</a>).
               </p>
 
               <p class="presentation-text">
@@ -803,7 +815,7 @@
 
               <p class="presentation-text">
                 At ISTA I have been a member of the <a href="https://sfb65.univie.ac.at/" target="_blank">Sfb&nbsp;65</a> <em>Taming Complexity in Partial Differential Systems</em> and at IAM of the <a href="https://sfb1060.iam.uni-bonn.de/" target="_blank">Sfb&nbsp;1060</a> <em>The Mathematics of Emergent Effects</em> in <a href="https://sfb1060.iam.uni-bonn.de/project-groups/project-group-b/b03/" target="_blank">project B03</a> <em>Optimal transport and random measures</em>.
-                I&nbsp;am currently a member of the DFG Priority Programme <a href="https://spp2265.wias-berlin.de/" target="_blank">SPP 2265</a> in <a href="https://spp2265.wias-berlin.de/project.php?projectID=39" target="_blank">project&nbsp;15</a> <em>Random Riemannian Geometry</em>.
+                I&nbsp;am currently an adjunct member of the DFG Priority Programme <a href="https://spp2265.wias-berlin.de/" target="_blank">SPP 2265</a> in <a href="https://spp2265.wias-berlin.de/project.php?projectID=39" target="_blank">project&nbsp;15</a> <em>Random Riemannian Geometry</em>.
               </p>
 
               <p class="presentation-text">
@@ -1068,7 +1080,7 @@
                         <li class="card-title">
                           Conformally Invariant Random Fields, Quantum Liouville Measures, and Random Paneitz Operators on Riemannian Manifolds of Even Dimension
                           <br>
-                          <b>Journal of the London Mathematical Society</b> (2024+) to appear
+                          <b>Journal of the London Mathematical Society</b> 110(5):1-80
                           <p class="card-author">
                             <b>L. Dello&nbsp;Schiavo</b>, R. Herry, E. Kopfer, K.-T. Sturm
                           </p>
@@ -1079,6 +1091,8 @@
                     <div id="preprint5" class="collapse" aria-labelledby="headingPreprint5" data-parent="#accordionPubs">
                       <div class="card-body border-bottom py-2">
                         <p class="card-link">
+                          <i class="ai ai-open-access ai"></i>
+                          <a href=https://doi.org/10.1112/jlms.70003 target="_blank">journal</a> &vert;
                           <a href="https://arxiv.org/abs/2105.13925" data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a>
                         </p>
                       </div>
