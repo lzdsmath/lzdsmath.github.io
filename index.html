@@ -69,6 +69,29 @@
       text-align: justify;
       -ms-hyphens:auto;
       hyphens:auto;
+      margin-bottom: 0;
+    }
+
+    ol.card-text {
+      font-size:12px;
+      text-align: justify;
+      -ms-hyphens:auto;
+      hyphens:auto;
+      counter-reset: list;
+      padding-left: 2em;
+    }
+
+    ol.card-text > li {
+      list-style: none;
+    }
+
+    ol.card-text > li:before {
+      margin: 0px;
+      font-size:12px;
+      content: "(" counter(list) ")";
+      counter-increment: list;
+      position: absolute;
+      left: 1.6em;
     }
 
     p.card-author {
@@ -347,17 +370,24 @@
             <div class="container mx-auto" style="max-width:560px">
               <h6>upcoming events</h6>
               <dl style="font-size:13px">
+              </dl>
+
+              <h6>some past events</h6>
+
+              <dl style="font-size:13px">
 
                 <dt>19–22/11/24</dt>
                 <dd>
                   <a href="https://sites.google.com/view/pepperschool/">Probability Event: Point Processes, Exchange & Research</a>, University of Münster, Münster, DE
                 </dd>
 
-              </dl>
-
-              <h6>some past events</h6>
-
-              <dl style="font-size:13px">
+                <dt>11-15/11/24</dt>
+                <dd>
+                  Research stay @ Università di Trieste, Trieste, IT
+                  <br>
+                  <p class="mb-0" style="font-size: 10px">
+                  </p> 
+                </dd>
 
                 <dt>28–31/10/24</dt>
                 <dd>
@@ -831,9 +861,9 @@
                     <br>  
                     - no other version of my name is correct;
                     <br>
-                    - due to <a href="https://academia.stackexchange.com/questions/153724/author-name-conventions-how-to-prevent-misindexing">arXiv's incorrect indexing</a> of author names, bibTeX records for all of my works on the arXiv are not correct (and there is no way to fix them). If you would like to cite my work (thank you!), please replace the author field by
+                    - due to <a href="https://academia.stackexchange.com/questions/153724/author-name-conventions-how-to-prevent-misindexing">arXiv's incorrect indexing</a> of author names, bibTeX records for all of my works on the arXiv are not correct (and there is no way for me to fix them). If you would like to cite my work (thank you!), please replace the author field by
                     <br>
-                    <code>author={{Dello Schiavo, Lorenzo} and ...}</code>
+                    <code>author={Dello Schiavo, Lorenzo and ...}</code>
                     (do not forget my coauthors ;)
               </p>
             </div>
@@ -869,7 +899,56 @@
               <div class="accordion" id="accordionPubs">
                 <!--Preprints-->
                 <h6>preprints</h6>
-                <ol class="list-unstyled" style="list-style: decimal;" reversed start="23">
+                <ol class="list-unstyled" style="list-style: decimal;" reversed start="24">
+
+                  <li class="card mt-2">
+                    <div class="card-header py-0" id="headingPreprint18">
+                      <button class="btn btn-sm px-0 py-2 btn-link btn-block text-left border-0 collapsed AccordionBtn" type="button" data-toggle="collapse" data-target="#preprint18" aria-expanded="true" aria-controls="preprint18">
+                        <li class="card-title">
+                            Massive Particle Systems, Wasserstein Brownian Motions, and the Dean&mdash;Kawasaki Equation
+                          <p class="card-author">
+                            <b>L. Dello&nbsp;Schiavo</b>
+                          </p>
+                        </li>
+                      </button>
+                    </div>
+
+                    <div id="preprint18" class="collapse" aria-labelledby="headingPreprint18" data-parent="#accordionPubs">
+                      <div class="card-body border-bottom py-2">
+                        <p class="card-link">
+                          <a href="https://arxiv.org/abs/2411.14936" data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a>
+                        </p>
+                      </div>
+                      <div class="card-body">
+                        <p class="card-text">
+                          We develop a unifying theory for four different objects:
+                        </p>    
+                          <ol class="card-text" style="list-style: decimal;">
+                            <li>infinite systems of interacting massive particles;</li>
+                            <li>solutions to the Dean&mdash;Kawasaki equation with singular drift and space-time white noise;</li>
+                            <li>Wasserstein diffusions with a.s. purely atomic reversible random measures;</li>
+                            <li>metric measure Brownian motions induced by Cheeger energies on $L^2$-Wasserstein spaces.</li>
+                          </ol>
+                        <p class="card-text">
+                          For the objects in (1)-(3) we prove existence and uniqueness of solutions,
+                          and several characterizations, on an arbitrary locally compact Polish ambient
+                          space $M$ with exponentially recurrent Feller driving noise. In the case of the
+                          Dean&mdash;Kawasaki equation, this amounts to replacing the Laplace operator with
+                          some arbitrary diffusive Markov generator $\mathsf{L}$ with ultracontractive
+                          semigroup. In addition to a complete discussion of the free case, we consider
+                          singular interactions, including, e.g., mean-field repulsive isotropic pairwise
+                          interactions of Riesz and logarithmic type under the assumption of local
+                          integrability.
+                          We further show that each Markov diffusion generator $\mathsf{L}$ on $M$
+                          induces in a natural way a geometry on the space of probability measures over
+                          $M$. When $M$ is a manifold and $\mathsf{L}$ is a drifted Laplace-Beltrami
+                          operator, this geometry coincides with the geometry of $L^2$-optimal
+                          transportation. The corresponding 'geometric Brownian motion' coincides with
+                          the 'metric measure Brownian motion' in (4).
+                        </p>
+                      </div>
+                    </div>
+                  </li>
 
                   <li class="card mt-2">
                     <div class="card-header py-0" id="headingPreprint17">
@@ -1737,7 +1816,7 @@
                 </ol>
 
                 <h6>phd thesis</h6>
-                <ol start="1">
+                <ol start="0">
                   <div class="card mt-2">
                     <div class="card-header py-0" id="headingThesisPhD">
                       <button class="btn btn-sm p-0 py-2 btn-link btn-block text-left border-0 collapsed AccordionBtn" type="button" data-toggle="collapse" data-target="#thesisPhD" aria-expanded="false" aria-controls="thesisPhD">
