@@ -137,19 +137,33 @@
       white-space: nowrap;
     }
 
+/*
     .navbar-btn-first{
-      border-top-left-radius: 50% !important;
-      border-bottom-left-radius: 50% !important;
+      border-top-left-radius: 50px !important;
+      border-bottom-left-radius: 50px !important;
     }
 
     .navbar-btn-last{
-      border-top-right-radius: 50% !important;
-      border-bottom-right-radius: 50% !important;
+      border-top-right-radius: 50px !important;
+      border-bottom-right-radius: 50px !important;
     }
 
     .navbar-btn-first,.navbar-btn-last:hover{
       background-color: #343a40 !important;
       border-color: #343a40 !important;
+    }
+*/
+
+    #BtnActivities{
+      padding-left: 15px;
+      border-top-left-radius: 50px !important;
+      border-bottom-left-radius: 50px !important;
+    }
+
+    #BtnSciPop{
+      padding-right: 15px;
+      border-top-right-radius: 50px !important;
+      border-bottom-right-radius: 50px !important;
     }
 
     @media screen and (min-width: 768px) {
@@ -186,21 +200,6 @@
       #Research {max-width: 75px;}
       #SciPop {max-width: 68px;}
     }
-    /*
-      #Activities,#SciPop,#Teaching,#Publications,#Location,#Research,#About {
-      max-width: 0px;
-    }
-    */
-
-/*
-    #Activities {max-width: 76px;}
-    #Location {max-width: 67px;}
-    #Teaching {max-width: 75px;}
-    #About {max-width: 54px;}
-    #Publications {max-width: 99px;}
-    #Research {max-width: 75px;}
-    #SciPop {max-width: 68px;}
-  */
 
   /*ACCORDIONS*/
   /*Links*/
@@ -295,9 +294,6 @@
       <div class="col d-flex justify-content-center">
         <div class="btn-group list-group list-group-horizontal" id="list-tab" role="tablist" style="max-width: 620px">
 
-          <button class="btn btn-dark btn-sm navbar-btn navbar-btn-first AccordionBtn">
-          </button>
-
           <!--Activities button-->
           <a class="btn btn-dark btn-sm navbar-btn" id="BtnActivities" data-toggle="list" href="#ActivitiesTab" target="#Activities" role="tab" aria-controls="ActivitiesTab">
             &thinsp;<i class="fa fa-calendar"></i>
@@ -319,7 +315,7 @@
           <!--About button-->
           <a class="btn btn-dark btn-sm navbar-btn" id="BtnAbout" data-toggle="list" href="#AboutTab" target="#About" role="tab" aria-controls="AboutTab" style="font-size: 16px" autofocus>
             &thinsp;&thinsp;<img src="me.png" class="rounded-circle z-depth-0 my-0" alt="avatar image" height="35">
-            <span id="LzDS" class="pb-1" style="margin-left:6px;">Lorenzo&ensp;Dello&nbsp;Schiavo</span>
+            <span id="LzDS" class="pb-1" style="margin-left:6px;">Lorenzo&ensp;<span style="font-variant: small-caps;">Dello&nbsp;Schiavo</span></span>
           <!--
             <div id="About" class="pb-1">about&ensp;</div>
           -->
@@ -342,9 +338,6 @@
             &thinsp;<i class="fa fa-rocket"></i>
             <div id="SciPop" class="pb-1">&ensp;sci-pop&ensp;</div>
           </a>
-
-          <button class="btn btn-dark btn-sm navbar-btn navbar-btn-last AccordionBtn">
-          </button>
 
         </div>
       </div>
@@ -376,16 +369,16 @@
                   Workshop <a href="" target="_blank"><em>Functional Inequalities: Geometric Calculus meets Stochastic Analysis</em></a>, MFO, Oberwolfach, DE
                 </dd>
 
-                <dt>23-26/09/25</dt>
-                <dd>
-                  Workshop <a href="https://www.epfl.ch/labs/stoan/stoan/workshop-2025/" target="_blank"><em>Young Researchers in Stochastic Analysis and Stochastic Geometric Analysis</em></a>, EPFL, Lausanne, CH
-                </dd>
-
               </dl>
 
               <h6>some past events</h6>
 
               <dl style="font-size:13px">
+
+                <dt>23-26/09/25</dt>
+                <dd>
+                  Workshop <a href="https://www.epfl.ch/labs/stoan/stoan/workshop-2025/" target="_blank"><em>Young Researchers in Stochastic Analysis and Stochastic Geometric Analysis</em></a>, EPFL, Lausanne, CH
+                </dd>
 
                 <dt>07-08/07/25</dt>
                 <dd>
@@ -896,7 +889,7 @@
               <!--
                 <img src="picture.png" alt="myself" style="width:200px;height:170px;margin-left:0px; float:right;">
               -->
-                Welcome! I am a mathematician working at the interface between analysis, probability, and geometry, and a tenure-track Assistant Professor at the <a href="https://www.mat.uniroma2.it/english2.php">Università degli Studi di Roma "Tor Vergata"</a>.
+                Welcome to my website! I am a mathematician working at the interface between analysis, probability, and geometry, and a tenure-track Assistant Professor at the <a href="https://www.mat.uniroma2.it/english2.php">Università degli Studi di Roma "Tor Vergata"</a>.
               </p>
 
               <p class="presentation-text">
@@ -966,7 +959,43 @@
               <div class="accordion" id="accordionPubs">
                 <!--Preprints-->
                 <h6>preprints</h6>
-                <ol class="list-unstyled" style="list-style: decimal;" reversed start="27">
+                <ol class="list-unstyled" style="list-style: decimal;" reversed start="28">
+
+                  <li class="card mt-2">
+                    <div class="card-header py-0" id="headingPreprint22">
+                      <button class="btn btn-sm px-0 py-2 btn-link btn-block text-left border-0 collapsed AccordionBtn" type="button" data-toggle="collapse" data-target="#preprint22" aria-expanded="true" aria-controls="preprint22">
+                        <li class="card-title">
+                            Non-bilinear Dirichlet Functionals: Markovianity, locality, invariance
+
+                          <p class="card-author">
+                            G.&nbsp;Brigati, <b>L.&nbsp;Dello&nbsp;Schiavo</b>
+                          </p>
+                        </li>
+                      </button>
+                    </div>
+
+                    <div id="preprint22" class="collapse" aria-labelledby="headingPreprint22" data-parent="#accordionPubs">
+                      <div class="card-body border-bottom py-2">
+                        <p class="card-link">
+                          <a href="https://arxiv.org/abs/2510.02942" data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a>
+                        </p>
+                      </div>
+                      <div class="card-body">
+                        <p class="card-text">
+                          We present in a unified setting the foundations for a theory of non-bilinear
+                          Dirichlet functionals on Hilbert spaces. We prove known and new equivalences
+                          between non-linear semigroups, non-linear resolvents, non-linear generators,
+                          and their energy functionals, including a complete characterization of
+                          Markovianity. We introduce and characterize strong notions of invariance for
+                          general lower semicontinuous convex functionals, and notions of locality and
+                          strong locality for non-bilinear Dirichlet functionals. Contrary to many
+                          partial results in the literature, these characterizations are complete and
+                          correctly extend the analogous assertions for the bilinear case in full
+                          generality.
+                        </p>
+                      </div>
+                    </div>
+                  </li>
 
                   <li class="card mt-2">
                     <div class="card-header py-0" id="headingPreprint21">
@@ -2087,7 +2116,7 @@
 
                 <p class="presentation-text">
                 Together with <a href="http://ronanherry.org/">Ronan Herry</a>, and PIs <a href="https://wt.iam.uni-bonn.de/kopfer/home">Eva Kopfer</a>, and <a href="https://wt.iam.uni-bonn.de/sturm/home/">Karl-Theodor Sturm</a>, I am a member of <a href="https://spp2265.wias-berlin.de/project.php?projectID=39">Projekt 15</a> <em>Random Riemannian Geometry</em> within the DFG Priority Programme <a href="https://spp2265.wias-berlin.de/">SPP 2265</a>.
-                We are studying Liouville Quantum Gravity on closed Riemannian manifolds $(M,g)$ of even dimension $n\geq 2$. In order to obtain a <i>conformal</i> field theory, we replace the standard Laplace–Beltrami operator with its conformally covariant counterpart, the Graham–Jenne–Mason–Sparling operator of critical order $n/2$.
+                We are studying Liouville Quantum Gravity on closed Riemannian manifolds $(M,g)$ of even dimension $n\geq 2$. In order to obtain a <i>conformal</i> field theory, we replace the standard Laplace–Beltrami operator with its conformally covariant counterpart, the Graham–Jenne–Mason–Sparling operator of critical order $n$.
                 </p>
 
               <p class="presentation-text">
