@@ -42,7 +42,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <!--Academicons-->
-	<link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css">
 
 <!--Styles-->
   <style>
@@ -111,7 +111,7 @@
     }
 
     p.card-link {
-      font-size:13px;
+      font-size:12px;
       text-align:right;
       -ms-hyphens:auto;
       hyphens:auto;
@@ -168,20 +168,26 @@
 
     @media screen and (min-width: 768px) {
       #Activities,#SciPop,#Teaching,#Publications,#Location,#Research,#About {
-        -webkit-transition: max-width 1.5s ease;
-        -moz-transition: max-width 1.5s ease;
-        -o-transition: max-width 1.5s ease;
-        transition: max-width 1.5s ease;
-        transition-delay: .5s;
+        -webkit-transition: max-width 1s ease;
+        -moz-transition: max-width 1s ease;
+        -o-transition: max-width 1s ease;
+        transition: max-width 1s ease;
 
         display: inline-block;
         overflow: hidden;
         white-space: nowrap;
         vertical-align: middle;
-        
+
         font-size: 16px;
 
-        width: 0px;
+        max-width: 0px;
+      }
+
+      /*labels expand on hover or keyboard focus, and stay open for the current tab*/
+      #list-tab .navbar-btn:hover > div,
+      #list-tab .navbar-btn:focus > div,
+      #list-tab .navbar-btn.active > div {
+        max-width: 110px;
       }
     }
 
@@ -191,14 +197,18 @@
       }
     }
     
-    @media screen and (min-width: 1024px) {
-      #Activities {max-width: 76px;}
-      #Location {max-width: 67px;}
-      #Teaching {max-width: 75px;}
-      #About {max-width: 54px;}
-      #Publications {max-width: 99px;}
-      #Research {max-width: 75px;}
-      #SciPop {max-width: 68px;}
+    #list-tab {
+      max-width: 620px;
+    }
+
+    /*wide screens: enough room to show all labels at once*/
+    @media screen and (min-width: 1200px) {
+      #list-tab {
+        max-width: none;
+      }
+      #Activities,#SciPop,#Teaching,#Publications,#Location,#Research,#About {
+        max-width: 110px;
+      }
     }
 
   /*ACCORDIONS*/
@@ -225,7 +235,7 @@
   .AccordionBtn {
     box-shadow:none !important;
     outline:0px !important;
-    font-size:13px;
+    font-size:14px;
     color: #1d548a !important;
     white-space: normal !important;
     padding-top: 4px !important;
@@ -265,7 +275,7 @@
       height: 100%;
       display: flex;
       flex-direction: column;
-      padding-bottom: 80px;
+      padding-bottom: 1rem;
     }
 
     .colophon {
@@ -273,6 +283,55 @@
       opacity:.80;
     }
 
+
+    /*research figures: stacked above the text on phones*/
+    @media screen and (max-width: 575px) {
+      .research-figure {
+        float: none !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
+    }
+
+    /*narrow screens: left-aligned text avoids gaps between words*/
+    @media screen and (max-width: 575px) {
+      p.presentation-text, li.presentation-text, p.card-text, ol.card-text {
+        text-align: left;
+      }
+    }
+
+    /*BibTeX boxes*/
+    .bibtex-toggle {
+      padding: 0 !important;
+      border: 0 !important;
+      font-size: inherit !important;
+      line-height: inherit !important;
+      vertical-align: baseline !important;
+      color: #1d548a !important;
+      box-shadow: none !important;
+    }
+    .bibtex {
+      position: relative;
+      margin-top: .5rem;
+      text-align: left;
+    }
+    .bibtex pre {
+      font-size: 11px;
+      background: #f6f7f9;
+      border: 1px solid #e3e6ea;
+      border-radius: 4px;
+      padding: .6em 4.5em .6em .8em;
+      margin: 0;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .bibtex-copy {
+      position: absolute;
+      top: .35em;
+      right: .35em;
+      font-size: 11px !important;
+      padding: .1em .5em !important;
+    }
 
     /*EQUATIONS*/
     .displayed_equation_wrap {
@@ -292,7 +351,7 @@
   <main class="container container-responsive mt-4">
     <div class="row">
       <div class="col d-flex justify-content-center">
-        <div class="btn-group list-group list-group-horizontal" id="list-tab" role="tablist" style="max-width: 620px">
+        <div class="btn-group list-group list-group-horizontal" id="list-tab" role="tablist">
 
           <!--Activities button-->
           <a class="btn btn-dark btn-sm navbar-btn" id="BtnActivities" data-toggle="list" href="#ActivitiesTab" target="#Activities" role="tab" aria-controls="ActivitiesTab">
@@ -343,7 +402,13 @@
       </div>
     </div>
 
- 
+    <!--Name on small screens, where the navbar hides it-->
+    <div class="row d-md-none">
+      <div class="col text-center mt-3" style="font-size: 16px;">
+        Lorenzo&ensp;<span style="font-variant: small-caps;">Dello&nbsp;Schiavo</span>
+      </div>
+    </div>
+
   <!--Tabs-->
     <div class="row" style="margin-top: 3rem;">
       <div class="col">
@@ -362,7 +427,7 @@
           <div class="tab-pane fade" id="ActivitiesTab" role="tabpanel" aria-labelledby="BtnActivities">
             <div class="container mx-auto" style="max-width:560px">
 <!--               <h6>announcements</h6>
-              <dl style="font-size:13px">
+              <dl style="font-size:14px">
 
                 <dt>20–23/10/26</dt>
                 <dd>
@@ -376,7 +441,7 @@
               </dl> -->
 
 
-              <h6>upcoming events</h6>
+              <h6>current and upcoming events</h6>
               <dl style="font-size:13px">
 
                 <dt>24/11/26</dt>
@@ -384,25 +449,24 @@
                   Séminaire <i>Calcul stochastique</i> @ IRMA – Université de Strasbourg, Strasbourg, FR
                 </dd>
 
-                <dt>20–23/10/26</dt>
-                <dd>
-                  <a href="https://sites.google.com/view/mdpde26/home" target="_blank">Workshop: Nonlinear Markov Processes, Dirichlet Forms, and PDEs</a>, Bernoulli Center, EPFL, Lausanne, CH
-                  <br>
-                  <p class="mb-0" style="font-size: 10px">
-                    Organizer with <a href="https://sites.google.com/view/mathiasbraun">Mathias Braun</a>, <a href="https://sites.google.com/view/giovannibrigati/home" target="_blank">Giovanni Brigati</a>, and <a href="https://mrehmeier.de/" target="_blank">Marco Rehmeier</a>
-                  </p> 
-                </dd>
-
                 <dt>1/10–04/12/26</dt>
                 <dd>
                   Research stay (CNRS Poste Rouge) @ Université de Haute-Alsace, Mulhouse, FR
                 </dd>
-
               </dl>
 
               <h6>some past events</h6>
 
               <dl style="font-size:13px">
+
+                <dt>20–23/10/26</dt>
+                <dd>
+                  <a href="https://sites.google.com/view/mdpde26/home" target="_blank">Workshop: Nonlinear Markov Processes, Dirichlet Forms, and PDEs</a>, Bernoulli Center, EPFL, Lausanne, CH
+                  <br>
+                  <p class="mb-0" style="font-size: 10px">
+                    Organizer with <a href="https://mathiasbraun.ch/">Mathias Braun</a>, <a href="https://sites.google.com/view/giovannibrigati/home" target="_blank">Giovanni Brigati</a>, and <a href="https://mrehmeier.de/" target="_blank">Marco Rehmeier</a>
+                  </p> 
+                </dd>
 
                 <dt>13-17/9/26</dt>
                 <dd>
@@ -441,7 +505,7 @@
 
                 <dt>22-27/03/26</dt>
                 <dd>
-                  Workshop <a href="" target="_blank"><em>Flows on Measure Spaces and Applications in Machine Learning</em></a>, MFO, Oberwolfach, DE
+                  Workshop <a href="https://opc.mfo.de/show_workshop?id=4386" target="_blank"><em>Flows on Measure Spaces and Applications in Machine Learning</em></a>, MFO, Oberwolfach, DE
                 </dd>
 
                 <dt>16-18/02/26</dt>
@@ -451,7 +515,7 @@
 
                 <dt>30/11-4/12/25</dt>
                 <dd>
-                  Workshop <a href="" target="_blank"><em>Functional Inequalities: Geometric Calculus meets Stochastic Analysis</em></a>, MFO, Oberwolfach, DE
+                  Workshop <a href="https://opc.mfo.de/show_workshop?id=4274" target="_blank"><em>Functional Inequalities: Geometric Calculus meets Stochastic Analysis</em></a>, MFO, Oberwolfach, DE
                 </dd>
 
                 <dt>24/11-28/11/25</dt>
@@ -488,11 +552,6 @@
                   </p> 
                 </dd>
 
-                <dt>10–14/01/25</dt>
-                <dd>
-                  Research stay @ Technische Universität München, Munich, DE
-                </dd>
-
                 <dt>29–31/01/25</dt>
                 <dd>
                   Research stay @ Technische Universität Berlin, Berlin, DE
@@ -501,6 +560,11 @@
                 <dt>29–30/01/25</dt>
                 <dd>
                   <a href="https://www.wias-berlin.de/workshops/csps25/">Critical behaviour in spatial particle systems</a>, Weierstraß Institut für Angewandte Analysis und Stochastik (WIAS), Berlin, DE
+                </dd>
+
+                <dt>10–14/01/25</dt>
+                <dd>
+                  Research stay @ Technische Universität München, Munich, DE
                 </dd>
 
                 <dt>16–17/12/24</dt>
@@ -833,11 +897,11 @@
             <div class="row justify-content-center mx-auto mb-6" style="max-width:560px">
               <div class="column mx-auto">
                 <!-- IST ADDRESS-->
-                <span style="font-size:14px">
+                <span style="font-size:13px">
                   <a href="https://www.mat.uniroma2.it/index.php" target="_blank">Dipartimento di Matematica &mdash; Università degli Studi di Roma Tor Vergata</a>
                 </span>
 
-                <div class="ml-2" style="font-size:13px">
+                <div class="ml-2" style="font-size:12px">
                   <div class="media">
                     <div class="align-self-center mr-3">
                       <a class="fa fa-map-marker fa-lg" href="https://www.google.it/maps/place/Macroarea+di+Scienze+Matematiche+Fisiche+e+Naturali+-+Universit%C3%A0+di+Roma+Tor+Vergata/@41.8527603,12.6037826,17z/data=!3m1!4b1!4m6!3m5!1s0x132587f9328c769b:0x1391be005eeb11f9!8m2!3d41.8527603!4d12.6037826!16s%2Fg%2F1262rygqy?entry=ttu&g_ep=EgoyMDI0MTAyOS4wIKXMDSoASAFQAw%3D%3D"></a>
@@ -852,13 +916,13 @@
                   </div>
                 </div>
 
-                <!-- IST MAIL-->
-                <span style="font-size:14px">
-                  <a href="mailto:delloschiavo*usualsymbol*mat.uniroma2.it" data-toggle="tooltip" title="Please insert &commat; where appropriate!">delloschiavo&thinsp;<i class="fa fa-at"></i>&thinsp;mat.uniroma2.it</a>
+                <!-- MAIL-->
+                <span style="font-size:13px">
+                  <a href="mailto:delloschiavo*usualsymbol*mat.uniroma2.it" id="EmailLink" data-user="delloschiavo" data-domain="mat.uniroma2.it" data-toggle="tooltip" title="Please insert &commat; where appropriate!">delloschiavo&thinsp;<i class="fa fa-at"></i>&thinsp;mat.uniroma2.it</a>
                 </span>
               </div>
 
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2971.8637078680163!2d12.6037826!3d41.8527603!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132587f9328c769b%3A0x1391be005eeb11f9!2sMacroarea%20di%20Scienze%20Matematiche%20Fisiche%20e%20Naturali%20-%20Universit%C3%A0%20di%20Roma%20Tor%20Vergata!5e0!3m2!1sen!2sat!4v1730475890354!5m2!1sen!2sat" width="600" height="400" frameborder="0" style="border:0; margin-top: 3rem;" allowfullscreen="" aria-hidden="false" tabindex="0">
+              <iframe title="Map: Department of Mathematics, Tor Vergata" data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2971.8637078680163!2d12.6037826!3d41.8527603!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132587f9328c769b%3A0x1391be005eeb11f9!2sMacroarea%20di%20Scienze%20Matematiche%20Fisiche%20e%20Naturali%20-%20Universit%C3%A0%20di%20Roma%20Tor%20Vergata!5e0!3m2!1sen!2sat!4v1730475890354!5m2!1sen!2sat" width="100%" height="400" frameborder="0" style="border:0; margin-top: 3rem; max-width: 600px;" allowfullscreen="" aria-hidden="false" tabindex="0">
               </iframe>
             </div>
           </div>
@@ -1040,7 +1104,7 @@
 
 
 <!--               <h6>event announcements</h6>
-              <dl style="font-size:13px">
+              <dl style="font-size:14px">
 
                 <dt>20–23/10/26</dt>
                 <dd>
@@ -1067,6 +1131,8 @@
                     <br>
                     <code>author={Dello Schiavo, Lorenzo and ...}</code>
                     (do not forget my coauthors ;)
+                    <br>
+                    - correct BibTeX entries for all my papers are in the list of <a href="#PublicationsTab">publications</a> (open a paper, then click <i>BibTeX</i>).
               </p>
             </div>
           </div>
@@ -1118,8 +1184,17 @@
                     <div id="preprint17" class="collapse" aria-labelledby="headingPreprint17" data-parent="#accordionPubs">
                       <div class="card-body border-bottom py-2">
                         <p class="card-link">
-                          <a href="https://arxiv.org/abs/2309.11292" data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a>
+                          <a href="https://arxiv.org/abs/2309.11292" data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a> &vert;
+                          <button type="button" class="btn btn-link bibtex-toggle" data-bib="bib-preprint17" aria-expanded="false" aria-controls="bib-preprint17">BibTeX</button>
                         </p>
+                        <div class="bibtex" id="bib-preprint17" hidden><button type="button" class="btn btn-sm btn-light bibtex-copy">copy</button><pre>@misc{DelloSchiavoQuattrocchi2023Polychromatic,
+  author        = {Dello Schiavo, Lorenzo and Quattrocchi, Filippo},
+  title         = {Polychromatic Partitions, {K}ingman Theory, and {E}wens Sampling Formula},
+  year          = {2023},
+  note          = {Preprint, arXiv:2309.11292},
+  eprint        = {2309.11292},
+  archivePrefix = {arXiv}
+}</pre></div>
                       </div>
                       <div class="card-body">
                         <p class="card-text">
@@ -1145,8 +1220,17 @@
                     <div id="preprint23" class="collapse" aria-labelledby="headingPreprint23" data-parent="#accordionPubs">
                       <div class="card-body border-bottom py-2">
                         <p class="card-link">
-                          <a href="https://arxiv.org/abs/2607.27121" data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a>
+                          <a href="https://arxiv.org/abs/2607.27121" data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a> &vert;
+                          <button type="button" class="btn btn-link bibtex-toggle" data-bib="bib-preprint23" aria-expanded="false" aria-controls="bib-preprint23">BibTeX</button>
                         </p>
+                        <div class="bibtex" id="bib-preprint23" hidden><button type="button" class="btn btn-sm btn-light bibtex-copy">copy</button><pre>@misc{DelloSchiavoPinamonti2026Global,
+  author        = {Dello Schiavo, Lorenzo and Pinamonti, Andrea},
+  title         = {A `global' Perspective on the Differential Geometry of {W}asserstein Spaces},
+  year          = {2026},
+  note          = {Preprint, arXiv:2607.27121},
+  eprint        = {2607.27121},
+  archivePrefix = {arXiv}
+}</pre></div>
                       </div>
                       <div class="card-body">
                         <p class="card-text">
@@ -1172,8 +1256,17 @@
                     <div id="preprint22" class="collapse" aria-labelledby="headingPreprint22" data-parent="#accordionPubs">
                       <div class="card-body border-bottom py-2">
                         <p class="card-link">
-                          <a href="https://arxiv.org/abs/2510.02942" data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a>
+                          <a href="https://arxiv.org/abs/2510.02942" data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a> &vert;
+                          <button type="button" class="btn btn-link bibtex-toggle" data-bib="bib-preprint22" aria-expanded="false" aria-controls="bib-preprint22">BibTeX</button>
                         </p>
+                        <div class="bibtex" id="bib-preprint22" hidden><button type="button" class="btn btn-sm btn-light bibtex-copy">copy</button><pre>@misc{BrigatiDelloSchiavo2025Nonbilinear,
+  author        = {Brigati, Giovanni and Dello Schiavo, Lorenzo},
+  title         = {Non-bilinear {D}irichlet Functionals: {M}arkovianity, locality, invariance},
+  year          = {2025},
+  note          = {Preprint, arXiv:2510.02942},
+  eprint        = {2510.02942},
+  archivePrefix = {arXiv}
+}</pre></div>
                       </div>
                       <div class="card-body">
                         <p class="card-text">
@@ -1208,8 +1301,17 @@
                     <div id="preprint21" class="collapse" aria-labelledby="headingPreprint21" data-parent="#accordionPubs">
                       <div class="card-body border-bottom py-2">
                         <p class="card-link">
-                          <a href="https://arxiv.org/abs/2503.07802" data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a>
+                          <a href="https://arxiv.org/abs/2503.07802" data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a> &vert;
+                          <button type="button" class="btn btn-link bibtex-toggle" data-bib="bib-preprint21" aria-expanded="false" aria-controls="bib-preprint21">BibTeX</button>
                         </p>
+                        <div class="bibtex" id="bib-preprint21" hidden><button type="button" class="btn btn-sm btn-light bibtex-copy">copy</button><pre>@misc{DelloSchiavoSodini2025HellingerKantorovich,
+  author        = {Dello Schiavo, Lorenzo and Sodini, Giacomo Enrico},
+  title         = {The {H}ellinger--{K}antorovich metric measure geometry on spaces of measures},
+  year          = {2025},
+  note          = {Preprint, arXiv:2503.07802},
+  eprint        = {2503.07802},
+  archivePrefix = {arXiv}
+}</pre></div>
                       </div>
                       <div class="card-body">
                         <p class="card-text">
@@ -1256,8 +1358,17 @@
                     <div id="preprint18" class="collapse" aria-labelledby="headingPreprint18" data-parent="#accordionPubs">
                       <div class="card-body border-bottom py-2">
                         <p class="card-link">
-                          <a href="https://arxiv.org/abs/2411.14936" data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a>
+                          <a href="https://arxiv.org/abs/2411.14936" data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a> &vert;
+                          <button type="button" class="btn btn-link bibtex-toggle" data-bib="bib-preprint18" aria-expanded="false" aria-controls="bib-preprint18">BibTeX</button>
                         </p>
+                        <div class="bibtex" id="bib-preprint18" hidden><button type="button" class="btn btn-sm btn-light bibtex-copy">copy</button><pre>@misc{DelloSchiavo2024Massive,
+  author        = {Dello Schiavo, Lorenzo},
+  title         = {Massive Particle Systems, {W}asserstein {B}rownian Motions, and the {D}ean--{K}awasaki Equation},
+  year          = {2024},
+  note          = {Preprint, arXiv:2411.14936},
+  eprint        = {2411.14936},
+  archivePrefix = {arXiv}
+}</pre></div>
                       </div>
                       <div class="card-body">
                         <p class="card-text">
@@ -1305,8 +1416,17 @@
                     <div id="preprint11" class="collapse" aria-labelledby="headingPreprint11" data-parent="#accordionPubs">
                       <div class="card-body border-bottom py-2">
                         <p class="card-link">
-                          <a href="https://arxiv.org/abs/2205.01379" data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a>
+                          <a href="https://arxiv.org/abs/2205.01379" data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a> &vert;
+                          <button type="button" class="btn btn-link bibtex-toggle" data-bib="bib-preprint11" aria-expanded="false" aria-controls="bib-preprint11">BibTeX</button>
                         </p>
+                        <div class="bibtex" id="bib-preprint11" hidden><button type="button" class="btn btn-sm btn-light bibtex-copy">copy</button><pre>@misc{DelloSchiavoSuzuki2022Configuration,
+  author        = {Dello Schiavo, Lorenzo and Suzuki, Kohei},
+  title         = {Configuration spaces over singular spaces --- {II}. {C}urvature},
+  year          = {2022},
+  note          = {Preprint, arXiv:2205.01379},
+  eprint        = {2205.01379},
+  archivePrefix = {arXiv}
+}</pre></div>
                       </div>
                       <div class="card-body">
                         <p class="card-text">
@@ -1314,8 +1434,8 @@
                           Firstly, we establish the essential self-adjointness and the $L^p$-uniqueness for the Laplacian on&nbsp;$\Upsilon$ lifted from&nbsp;$X$.
                           Secondly, we prove the equivalence of Bakry–Émery curvature bounds on&nbsp;$X$ and on&nbsp;$\Upsilon$, without any metric assumption on&nbsp;$X$.
                           We further prove the Evolution Variation Inequality on&nbsp;$\Upsilon$, and introduce the notion of synthetic Ricci-curvature lower bounds for the extended metric measure space&nbsp;$\Upsilon$.
-                          As an application, we prove the Sobolev-to-Lipschitz property on&nbsp;$\Upsilon$ over singular spaces&nbsp;$X$, originally conjectured in the case when&nbsp;$X$ is a manifold by M.&nbsp;Röckner and A.&nbsp;Schield.
-                          As a further application, we prove the $L^\infty$-to-$\mathsf{d}_{\Upsilon}$-Lipschitz regularization of the heat semigroup on&nbsp;$\Upsilon$ and gives a new characterization of the ergodicity of the corresponding particle systems in terms of optimal transport.
+                          As an application, we prove the Sobolev-to-Lipschitz property on&nbsp;$\Upsilon$ over singular spaces&nbsp;$X$, originally conjectured in the case when&nbsp;$X$ is a manifold by M.&nbsp;Röckner and A.&nbsp;Schied.
+                          As a further application, we prove the $L^\infty$-to-$\mathsf{d}_{\Upsilon}$-Lipschitz regularization of the heat semigroup on&nbsp;$\Upsilon$ and give a new characterization of the ergodicity of the corresponding particle systems in terms of optimal transport.
                         </p>
                       </div>
                     </div>
@@ -1365,8 +1485,17 @@
                     <div id="preprint7" class="collapse" aria-labelledby="headingPreprint7" data-parent="#accordionPubs">
                       <div class="card-body border-bottom py-2">
                         <p class="card-link">
-                          <a href="https://arxiv.org/abs/2109.03192" data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a>
+                          <a href="https://arxiv.org/abs/2109.03192" data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a> &vert;
+                          <button type="button" class="btn btn-link bibtex-toggle" data-bib="bib-preprint7" aria-expanded="false" aria-controls="bib-preprint7">BibTeX</button>
                         </p>
+                        <div class="bibtex" id="bib-preprint7" hidden><button type="button" class="btn btn-sm btn-light bibtex-copy">copy</button><pre>@misc{DelloSchiavoSuzuki2021Configuration,
+  author        = {Dello Schiavo, Lorenzo and Suzuki, Kohei},
+  title         = {Configuration spaces over singular spaces --- {I}. {D}irichlet-Form and Metric Measure Geometry},
+  year          = {2021},
+  note          = {Preprint, arXiv:2109.03192},
+  eprint        = {2109.03192},
+  archivePrefix = {arXiv}
+}</pre></div>
                       </div>
                       <div class="card-body">
                         <p class="card-text">
@@ -1396,6 +1525,55 @@
               <h6 class="mt-3">publications</h6>
                 <ol class="list-unstyled" style="list-style: decimal;" reversed>
 
+                  <!--2026-->
+                  <li class="card mt-2">
+                    <div class="card-header py-0" id="headingPreprint19">
+                      <button class="btn btn-sm px-0 py-2 btn-link btn-block text-left border-0 collapsed AccordionBtn" type="button" data-toggle="collapse" data-target="#preprint19" aria-expanded="true" aria-controls="preprint19">
+                        <li class="card-title">
+                            Gradient flows of $(K,N)$-convex functions with negative $N$
+                            <br>
+                            <b>Calculus of Variations and Partial Differential Equations</b> 65:90 (2026)
+                          <p class="card-author">
+                            <b>L. Dello&nbsp;Schiavo</b>, M.&nbsp;Magnabosco, C.&nbsp;Rigoni
+                          </p>
+                        </li>
+                      </button>
+                    </div>
+
+                    <div id="preprint19" class="collapse" aria-labelledby="headingPreprint19" data-parent="#accordionPubs">
+                      <div class="card-body border-bottom py-2">
+                        <p class="card-link">
+                          <i class="ai ai-open-access ai"></i>
+                          <a href= https://doi.org/10.1007/s00526-025-03187-z target="_blank">journal</a> &vert;
+                          <a href="https://arxiv.org/abs/2412.04574" data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a> &vert;
+                          <button type="button" class="btn btn-link bibtex-toggle" data-bib="bib-preprint19" aria-expanded="false" aria-controls="bib-preprint19">BibTeX</button>
+                        </p>
+                        <div class="bibtex" id="bib-preprint19" hidden><button type="button" class="btn btn-sm btn-light bibtex-copy">copy</button><pre>@article{DelloSchiavoMagnaboscoRigoni2026Gradient,
+  author        = {Dello Schiavo, Lorenzo and Magnabosco, Mattia and Rigoni, Chiara},
+  title         = {Gradient flows of $(K,N)$-convex functions with negative $N$},
+  journal       = {Calculus of Variations and Partial Differential Equations},
+  volume        = {65},
+  pages         = {Paper No. 90},
+  year          = {2026},
+  doi           = {10.1007/s00526-025-03187-z},
+  eprint        = {2412.04574},
+  archivePrefix = {arXiv}
+}</pre></div>
+                      </div>
+                      <div class="card-body">
+                        <p class="card-text">
+                          We discuss $(K,N)$-convexity and gradient flows for $(K,N)$-convex
+                          functionals on metric spaces, in the case of real $K$ and negative $N$. In this
+                          generality, it is necessary to consider functionals unbounded from below and/or
+                          above, possibly attaining as values both the positive and the negative
+                          infinity. We prove several properties of gradient flows of $(K,N)$-convex
+                          functionals characterized by Evolution Variational Inequalities, including
+                          contractivity, regularity, and uniqueness.
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+
                   <li class="card mt-2">
                     <div class="card-header py-0" id="headingPreprint16">
                       <button class="btn btn-sm px-0 py-2 btn-link btn-block text-left border-0 collapsed AccordionBtn" type="button" data-toggle="collapse" data-target="#preprint16" aria-expanded="true" aria-controls="preprint16">
@@ -1415,8 +1593,20 @@
                         <p class="card-link">
                           <i class="ai ai-open-access ai"></i>
                           <a href= https://doi.org/10.1016/j.aim.2025.110542 target="_blank">journal</a> &vert;
-                          <a href="https://arxiv.org/abs/2309.10733" data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a>
+                          <a href="https://arxiv.org/abs/2309.10733" data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a> &vert;
+                          <button type="button" class="btn btn-link bibtex-toggle" data-bib="bib-preprint16" aria-expanded="false" aria-controls="bib-preprint16">BibTeX</button>
                         </p>
+                        <div class="bibtex" id="bib-preprint16" hidden><button type="button" class="btn btn-sm btn-light bibtex-copy">copy</button><pre>@article{DelloSchiavoSuzuki2025Persistence,
+  author        = {Dello Schiavo, Lorenzo and Suzuki, Kohei},
+  title         = {Persistence of {R}ademacher-type and {S}obolev-to-{L}ipschitz properties},
+  journal       = {Advances in Mathematics},
+  volume        = {481},
+  pages         = {Paper No. 110542},
+  year          = {2025},
+  doi           = {10.1016/j.aim.2025.110542},
+  eprint        = {2309.10733},
+  archivePrefix = {arXiv}
+}</pre></div>
                       </div>
                       <div class="card-body">
                         <p class="card-text">
@@ -1449,8 +1639,20 @@
                         <p class="card-link">
                           <i class="ai ai-open-access ai"></i>
                           <a href= https://doi.org/10.1214/25-ECP702 target="_blank">journal</a> &vert;
-                          <a href="https://arxiv.org/abs/2501.09677" data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a>
+                          <a href="https://arxiv.org/abs/2501.09677" data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a> &vert;
+                          <button type="button" class="btn btn-link bibtex-toggle" data-bib="bib-preprint20" aria-expanded="false" aria-controls="bib-preprint20">BibTeX</button>
                         </p>
+                        <div class="bibtex" id="bib-preprint20" hidden><button type="button" class="btn btn-sm btn-light bibtex-copy">copy</button><pre>@article{DelloSchiavoKonarovskyi2025Illposedness,
+  author        = {Dello Schiavo, Lorenzo and Konarovskyi, Vitalii},
+  title         = {Ill-posedness of the pure-noise {D}ean--{K}awasaki equation},
+  journal       = {Electronic Communications in Probability},
+  volume        = {30},
+  pages         = {Paper No. 52, 9 pp.},
+  year          = {2025},
+  doi           = {10.1214/25-ECP702},
+  eprint        = {2501.09677},
+  archivePrefix = {arXiv}
+}</pre></div>
                       </div>
                       <div class="card-body">
                         <p class="card-text">
@@ -1461,42 +1663,6 @@
                           with vector-valued space-time white noise $\xi$, does not admit solutions for any initial measure and any vector-valued bounded measurable function $H$ on the space of measures.
                           This applies in particular to the pure-noise Dean&mdash;Kawasaki equation ($H \equiv 0$).
                           The result is sharp, in the sense that solutions are known to exist for some unbounded $H$.
-                        </p>
-                      </div>
-                    </div>
-                  </li>
-
-                  <li class="card mt-2">
-                    <div class="card-header py-0" id="headingPreprint19">
-                      <button class="btn btn-sm px-0 py-2 btn-link btn-block text-left border-0 collapsed AccordionBtn" type="button" data-toggle="collapse" data-target="#preprint19" aria-expanded="true" aria-controls="preprint19">
-                        <li class="card-title">
-                            Gradient flows of $(K,N)$-convex functions with negative $N$
-                            <br>
-                            <b>Calculus of Variations and Partial Differential Equations</b> 65:90 (2026)
-                          <p class="card-author">
-                            <b>L. Dello&nbsp;Schiavo</b>, M.&nbsp;Magnabosco, C.&nbsp;Rigoni
-                          </p>
-                        </li>
-                      </button>
-                    </div>
-
-                    <div id="preprint19" class="collapse" aria-labelledby="headingPreprint19" data-parent="#accordionPubs">
-                      <div class="card-body border-bottom py-2">
-                        <p class="card-link">
-                          <i class="ai ai-open-access ai"></i>
-                          <a href= https://doi.org/10.1007/s00526-025-03187-z target="_blank">journal</a> &vert;
-                          <a href="https://arxiv.org/abs/2412.04574" data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a>
-                        </p>
-                      </div>
-                      <div class="card-body">
-                        <p class="card-text">
-                          We discuss $(K,N)$-convexity and gradient flows for $(K,N)$-convex
-                          functionals on metric spaces, in the case of real $K$ and negative $N$. In this
-                          generality, it is necessary to consider functionals unbounded from below and/or
-                          above, possibly attaining as values both the positive and the negative
-                          infinity. We prove several properties of gradient flows of $(K,N)$-convex
-                          functionals characterized by Evolution Variational Inequalities, including
-                          contractivity, regularity, and uniqueness.
                         </p>
                       </div>
                     </div>
@@ -1523,12 +1689,25 @@
                         <p class="card-link">
                           <i class="ai ai-open-access ai"></i>
                           <a href= https://doi.org/10.1002/mana.202400169 target="_blank">journal</a> &vert;
-                          <a href="https://arxiv.org/abs/2302.02963" data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a>
+                          <a href="https://arxiv.org/abs/2302.02963" data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a> &vert;
+                          <button type="button" class="btn btn-link bibtex-toggle" data-bib="bib-preprint12" aria-expanded="false" aria-controls="bib-preprint12">BibTeX</button>
                         </p>
+                        <div class="bibtex" id="bib-preprint12" hidden><button type="button" class="btn btn-sm btn-light bibtex-copy">copy</button><pre>@article{DelloSchiavoHerryKopferSturm2025Polyharmonic,
+  author        = {Dello Schiavo, Lorenzo and Herry, Ronan and Kopfer, Eva and Sturm, Karl-Theodor},
+  title         = {Polyharmonic Fields and {L}iouville Quantum Gravity Measures on Tori of Arbitrary Dimension: from Discrete to Continuous},
+  journal       = {Mathematische Nachrichten},
+  volume        = {298},
+  number        = {1},
+  pages         = {244--281},
+  year          = {2025},
+  doi           = {10.1002/mana.202400169},
+  eprint        = {2302.02963},
+  archivePrefix = {arXiv}
+}</pre></div>
                       </div>
                       <div class="card-body">
                         <p class="card-text">
-                          For an arbitrary dimension $n$, we study: (a) the Polyharmonic Gaussian Field $h_L$ on the discrete torus $\mathbb{T}^n_L = \frac{1}{L} \mathbb{Z}^{n} / \mathbb{Z}^{n}$, that is the random field whose law on $\mathbb{R}^{\mathbb{T}^{n}_{L}}$  given by
+                          For an arbitrary dimension $n$, we study: (a) the Polyharmonic Gaussian Field $h_L$ on the discrete torus $\mathbb{T}^n_L = \frac{1}{L} \mathbb{Z}^{n} / \mathbb{Z}^{n}$, that is the random field whose law on $\mathbb{R}^{\mathbb{T}^{n}_{L}}$ is given by
                           \begin{equation*}
                             c_n\, e^{-b_n\|(-\Delta_L)^{n/4}h\|^2} dh,
                           \end{equation*}
@@ -1563,8 +1742,21 @@
                         <p class="card-link">
                           <i class="ai ai-open-access ai"></i>
                           <a href=https://doi.org/10.1112/jlms.70003 target="_blank">journal</a> &vert;
-                          <a href="https://arxiv.org/abs/2105.13925" data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a>
+                          <a href="https://arxiv.org/abs/2105.13925" data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a> &vert;
+                          <button type="button" class="btn btn-link bibtex-toggle" data-bib="bib-preprint5" aria-expanded="false" aria-controls="bib-preprint5">BibTeX</button>
                         </p>
+                        <div class="bibtex" id="bib-preprint5" hidden><button type="button" class="btn btn-sm btn-light bibtex-copy">copy</button><pre>@article{DelloSchiavoHerryKopferSturm2024Conformally,
+  author        = {Dello Schiavo, Lorenzo and Herry, Ronan and Kopfer, Eva and Sturm, Karl-Theodor},
+  title         = {Conformally Invariant Random Fields, Quantum {L}iouville Measures, and Random {P}aneitz Operators on {R}iemannian Manifolds of Even Dimension},
+  journal       = {Journal of the London Mathematical Society},
+  volume        = {110},
+  number        = {5},
+  pages         = {Paper No. e70003, 80 pp.},
+  year          = {2024},
+  doi           = {10.1112/jlms.70003},
+  eprint        = {2105.13925},
+  archivePrefix = {arXiv}
+}</pre></div>
                       </div>
                       <div class="card-body">
                         <p class="card-text">
@@ -1588,7 +1780,7 @@
                           $$
                           for an explicitly given random variable&nbsp;$F^h(x)$.
 
-                          In terms on the quantum Liouville measure, we define the <i>Liouville Brownian motion</i> on&nbsp;$M$ and the <i>random GJMS operators</i>.
+                          In terms of the quantum Liouville measure, we define the <i>Liouville Brownian motion</i> on&nbsp;$M$ and the <i>random GJMS operators</i>.
                           Finally, we present an approach to a conformal field theory in arbitrary even dimensions with an  ansatz based on Branson's $Q$-curvature: we give a rigorous meaning to the <i>Polyakov&mdash;Liouville measure</i>
                           <span class=displayed_equation_wrap>
                             <span class=equation>
@@ -1623,13 +1815,25 @@
                       </button>
                     </div>
 
-                    <div id="preprint13" class="collapse show" aria-labelledby="headingPreprint13" data-parent="#accordionPubs">
+                    <div id="preprint13" class="collapse" aria-labelledby="headingPreprint13" data-parent="#accordionPubs">
                       <div class="card-body border-bottom py-2">
                         <p class="card-link">
                           <i class="ai ai-open-access ai"></i>
                           <a href=https://doi.org/10.5802/jep.270 target="_blank">journal</a> &vert;
-                          <a href="https://arxiv.org/abs/2303.00398" data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a>
+                          <a href="https://arxiv.org/abs/2303.00398" data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a> &vert;
+                          <button type="button" class="btn btn-link bibtex-toggle" data-bib="bib-preprint13" aria-expanded="false" aria-controls="bib-preprint13">BibTeX</button>
                         </p>
+                        <div class="bibtex" id="bib-preprint13" hidden><button type="button" class="btn btn-sm btn-light bibtex-copy">copy</button><pre>@article{DelloSchiavoHerrySuzuki2024Wasserstein,
+  author        = {Dello Schiavo, Lorenzo and Herry, Ronan and Suzuki, Kohei},
+  title         = {{W}asserstein geometry and {R}icci curvature bounds for {P}oisson spaces},
+  journal       = {Journal de l'{\'E}cole polytechnique --- Math{\'e}matiques},
+  volume        = {11},
+  pages         = {957--1010},
+  year          = {2024},
+  doi           = {10.5802/jep.270},
+  eprint        = {2303.00398},
+  archivePrefix = {arXiv}
+}</pre></div>
                       </div>
                       <div class="card-body">
                         <p class="card-text">
@@ -1658,8 +1862,21 @@
                         <p class="card-link">
                           <i class="ai ai-closed-access ai"></i>
                           <a href=https://doi.org/10.1090/tran/9156 target="_blank">journal</a> &vert;
-                          <a href="https://arxiv.org/abs/2304.05239" data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a>
+                          <a href="https://arxiv.org/abs/2304.05239" data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a> &vert;
+                          <button type="button" class="btn btn-link bibtex-toggle" data-bib="bib-preprint14" aria-expanded="false" aria-controls="bib-preprint14">BibTeX</button>
                         </p>
+                        <div class="bibtex" id="bib-preprint14" hidden><button type="button" class="btn btn-sm btn-light bibtex-copy">copy</button><pre>@article{DelloSchiavoMaasPedrotti2024Local,
+  author        = {Dello Schiavo, Lorenzo and Maas, Jan and Pedrotti, Francesco},
+  title         = {Local Conditions for Global Convergence of Gradient Flows and Proximal Point Sequences in Metric Spaces},
+  journal       = {Transactions of the American Mathematical Society},
+  volume        = {377},
+  number        = {6},
+  pages         = {3779--3804},
+  year          = {2024},
+  doi           = {10.1090/tran/9156},
+  eprint        = {2304.05239},
+  archivePrefix = {arXiv}
+}</pre></div>
                       </div>
                       <div class="card-body">
                         <p class="card-text">
@@ -1690,8 +1907,21 @@
                         <p class="card-link">
                           <i class="ai ai-open-access ai"></i>
                           <a href=https://www.mathos.unios.hr/mc/index.php/mc/article/view/5023/957 target="_blank">journal</a> &vert;
-                          <a href="https://arxiv.org/abs/2304.11348" data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a>
+                          <a href="https://arxiv.org/abs/2304.11348" data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a> &vert;
+                          <button type="button" class="btn btn-link bibtex-toggle" data-bib="bib-Paper2024A" aria-expanded="false" aria-controls="bib-Paper2024A">BibTeX</button>
                         </p>
+                        <div class="bibtex" id="bib-Paper2024A" hidden><button type="button" class="btn btn-sm btn-light bibtex-copy">copy</button><pre>@article{DelloSchiavo2024Characterization,
+  author        = {Dello Schiavo, Lorenzo},
+  title         = {A Characterization of Maps of Bounded Compression},
+  journal       = {Mathematical Communications},
+  volume        = {29},
+  number        = {1},
+  pages         = {137--142},
+  year          = {2024},
+  url           = {https://www.mathos.unios.hr/mc/index.php/mc/article/view/5023/957},
+  eprint        = {2304.11348},
+  archivePrefix = {arXiv}
+}</pre></div>
                       </div>
                       <div class="card-body">
                         <p class="card-text">
@@ -1721,8 +1951,20 @@
                         <p class="card-link">
                           <i class="ai ai-open-access ai"></i>
                           <a href=https://doi.org/10.1007/s11118-023-10118-0 target="_blank">journal</a> &vert;
-                          <a href=https://arxiv.org/abs/2012.06796 data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a>
+                          <a href=https://arxiv.org/abs/2012.06796 data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a> &vert;
+                          <button type="button" class="btn btn-link bibtex-toggle" data-bib="bib-paper2023C" aria-expanded="false" aria-controls="bib-paper2023C">BibTeX</button>
                         </p>
+                        <div class="bibtex" id="bib-paper2023C" hidden><button type="button" class="btn btn-sm btn-light bibtex-copy">copy</button><pre>@article{DelloSchiavoKopferSturm2024Discovery,
+  author        = {Dello Schiavo, Lorenzo and Kopfer, Eva and Sturm, Karl-Theodor},
+  title         = {A Discovery Tour in Random {R}iemannian Geometry},
+  journal       = {Potential Analysis},
+  volume        = {61},
+  pages         = {501--553},
+  year          = {2024},
+  doi           = {10.1007/s11118-023-10118-0},
+  eprint        = {2012.06796},
+  archivePrefix = {arXiv}
+}</pre></div>
                       </div>
                       <div class="card-body">
                         <p class="card-text">
@@ -1751,8 +1993,21 @@
                         <p class="card-link">
                           <i class="ai ai-closed-access ai"></i>
                           <a href=https://doi.org/10.1214/23-AAP2007 target="_blank">journal</a> &vert;
-                          <a href="https://arxiv.org/abs/2112.14196" data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a>
+                          <a href="https://arxiv.org/abs/2112.14196" data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a> &vert;
+                          <button type="button" class="btn btn-link bibtex-toggle" data-bib="bib-Paper2023B" aria-expanded="false" aria-controls="bib-Paper2023B">BibTeX</button>
                         </p>
+                        <div class="bibtex" id="bib-Paper2023B" hidden><button type="button" class="btn btn-sm btn-light bibtex-copy">copy</button><pre>@article{DelloSchiavoPortinaleSau2024Scaling,
+  author        = {Dello Schiavo, Lorenzo and Portinale, Lorenzo and Sau, Federico},
+  title         = {Scaling Limits of Random Walks, Harmonic Profiles, and Stationary Non-Equilibrium States in {L}ipschitz Domains},
+  journal       = {The Annals of Applied Probability},
+  volume        = {34},
+  number        = {2},
+  pages         = {1789--1845},
+  year          = {2024},
+  doi           = {10.1214/23-AAP2007},
+  eprint        = {2112.14196},
+  archivePrefix = {arXiv}
+}</pre></div>
                       </div>
                       <div class="card-body">
                         <p class="card-text">
@@ -1780,8 +2035,20 @@
                       <div class="card-body border-bottom py-2">
                         <p class="card-link">
                           <i class="ai ai-open-access ai"></i>
-                          <a href=https://doi.org/10.1214/23-ECP528 target="_blank">journal</a> &vert; <a href=https://arxiv.org/abs/1706.07602 data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a>
+                          <a href=https://doi.org/10.1214/23-ECP528 target="_blank">journal</a> &vert; <a href=https://arxiv.org/abs/1706.07602 data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a> &vert;
+                          <button type="button" class="btn btn-link bibtex-toggle" data-bib="bib-paper2023A" aria-expanded="false" aria-controls="bib-paper2023A">BibTeX</button>
                         </p>
+                        <div class="bibtex" id="bib-paper2023A" hidden><button type="button" class="btn btn-sm btn-light bibtex-copy">copy</button><pre>@article{DelloSchiavoLytvynov2023Mecketype,
+  author        = {Dello Schiavo, Lorenzo and Lytvynov, Eugene},
+  title         = {A {M}ecke-type characterization of the {D}irichlet--{F}erguson measure},
+  journal       = {Electronic Communications in Probability},
+  volume        = {28},
+  pages         = {Paper No. 21, 12 pp.},
+  year          = {2023},
+  doi           = {10.1214/23-ECP528},
+  eprint        = {1706.07602},
+  archivePrefix = {arXiv}
+}</pre></div>
                       </div>
                       <div class="card-body">
                         <p class="card-text">
@@ -1799,7 +2066,7 @@
                         <li class="card-title">
                           Ergodic decompositions of Dirichlet forms under order isomorphisms
                           <br>
-                          <b>Journal of Evolution Equations</b> 23 (2023)
+                          <b>Journal of Evolution Equations</b> 23(1):9 (2023)
                           <p class="card-author">
                             <b>L. Dello&nbsp;Schiavo</b>, M. Wirth
                           </p>
@@ -1811,8 +2078,21 @@
                       <div class="card-body border-bottom py-2">
                         <p class="card-link">
                           <i class="ai ai-open-access ai"></i>
-                          <a href=https://doi.org/10.1007/s00028-022-00859-7 target="_blank">journal</a> &vert; <a href=https://arxiv.org/abs/2109.00615 data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a>
+                          <a href=https://doi.org/10.1007/s00028-022-00859-7 target="_blank">journal</a> &vert; <a href=https://arxiv.org/abs/2109.00615 data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a> &vert;
+                          <button type="button" class="btn btn-link bibtex-toggle" data-bib="bib-paper2022C" aria-expanded="false" aria-controls="bib-paper2022C">BibTeX</button>
                         </p>
+                        <div class="bibtex" id="bib-paper2022C" hidden><button type="button" class="btn btn-sm btn-light bibtex-copy">copy</button><pre>@article{DelloSchiavoWirth2023Ergodic,
+  author        = {Dello Schiavo, Lorenzo and Wirth, Melchior},
+  title         = {Ergodic decompositions of {D}irichlet forms under order isomorphisms},
+  journal       = {Journal of Evolution Equations},
+  volume        = {23},
+  number        = {1},
+  pages         = {Paper No. 9},
+  year          = {2023},
+  doi           = {10.1007/s00028-022-00859-7},
+  eprint        = {2109.00615},
+  archivePrefix = {arXiv}
+}</pre></div>
                       </div>
                       <div class="card-body">
                         <p class="card-text">
@@ -1828,7 +2108,7 @@
                         <li class="card-title">
                           Effective Contraction of Skinning Maps
                           <br>
-                          <b>Proceedings of the American Mathematical Society</b> 9: 445-459 (2022)
+                          <b>Proceedings of the American Mathematical Society, Series B</b> 9: 445-459 (2022)
                           <p class="card-author">
                             T. Cremaschi, <b>L. Dello&nbsp;Schiavo</b>
                           </p>
@@ -1840,8 +2120,20 @@
                       <div class="card-body border-bottom py-2">
                         <p class="card-link">
                           <i class="ai ai-open-access ai"></i>
-                          <a href=https://doi.org/10.1090/bproc/134 target="_blank">journal</a> &vert; <a href=https://arxiv.org/abs/2111.07472 data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a>
+                          <a href=https://doi.org/10.1090/bproc/134 target="_blank">journal</a> &vert; <a href=https://arxiv.org/abs/2111.07472 data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a> &vert;
+                          <button type="button" class="btn btn-link bibtex-toggle" data-bib="bib-Paper2022B" aria-expanded="false" aria-controls="bib-Paper2022B">BibTeX</button>
                         </p>
+                        <div class="bibtex" id="bib-Paper2022B" hidden><button type="button" class="btn btn-sm btn-light bibtex-copy">copy</button><pre>@article{CremaschiDelloSchiavo2022Effective,
+  author        = {Cremaschi, Tommaso and Dello Schiavo, Lorenzo},
+  title         = {Effective Contraction of Skinning Maps},
+  journal       = {Proceedings of the American Mathematical Society, Series B},
+  volume        = {9},
+  pages         = {445--459},
+  year          = {2022},
+  doi           = {10.1090/bproc/134},
+  eprint        = {2111.07472},
+  archivePrefix = {arXiv}
+}</pre></div>
                       </div>
                       <div class="card-body">
                         <p class="card-text">
@@ -1869,8 +2161,21 @@
                       <div class="card-body border-bottom py-2">
                         <p class="card-link">
                           <i class="ai ai-closed-access ai"></i>
-                          <a href=https://doi.org/10.1214/21-AOP1541 target="_blank">journal</a> &vert; <a href=https://arxiv.org/abs/1811.11598 data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a>
+                          <a href=https://doi.org/10.1214/21-AOP1541 target="_blank">journal</a> &vert; <a href=https://arxiv.org/abs/1811.11598 data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a> &vert;
+                          <button type="button" class="btn btn-link bibtex-toggle" data-bib="bib-DFDiffusion" aria-expanded="false" aria-controls="bib-DFDiffusion">BibTeX</button>
                         </p>
+                        <div class="bibtex" id="bib-DFDiffusion" hidden><button type="button" class="btn btn-sm btn-light bibtex-copy">copy</button><pre>@article{DelloSchiavo2022DirichletFerguson,
+  author        = {Dello Schiavo, Lorenzo},
+  title         = {The {D}irichlet--{F}erguson Diffusion on the Space of Probability Measures over a Closed {R}iemannian Manifold},
+  journal       = {The Annals of Probability},
+  volume        = {50},
+  number        = {2},
+  pages         = {591--648},
+  year          = {2022},
+  doi           = {10.1214/21-AOP1541},
+  eprint        = {1811.11598},
+  archivePrefix = {arXiv}
+}</pre></div>
                       </div>
                       <div class="card-body">
                         <p class="card-text">
@@ -1900,12 +2205,24 @@
                         <p class="card-link">
                           <i class="ai ai-open-access ai"></i>
                           <a href=https://doi.org/10.1007/s00208-021-02331-2 target="_blank">journal</a> &vert;
-                          <a href=https://arxiv.org/abs/2110.05137 data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a>
+                          <a href=https://arxiv.org/abs/2110.05137 data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a> &vert;
+                          <button type="button" class="btn btn-link bibtex-toggle" data-bib="bib-Paper2021-D" aria-expanded="false" aria-controls="bib-Paper2021-D">BibTeX</button>
                         </p>
+                        <div class="bibtex" id="bib-Paper2021-D" hidden><button type="button" class="btn btn-sm btn-light bibtex-copy">copy</button><pre>@article{DelloSchiavoSuzuki2022SobolevtoLipschitz,
+  author        = {Dello Schiavo, Lorenzo and Suzuki, Kohei},
+  title         = {{S}obolev-to-{L}ipschitz Property on $\mathsf{QCD}$-spaces and Applications},
+  journal       = {Mathematische Annalen},
+  volume        = {384},
+  pages         = {1815--1832},
+  year          = {2022},
+  doi           = {10.1007/s00208-021-02331-2},
+  eprint        = {2110.05137},
+  archivePrefix = {arXiv}
+}</pre></div>
                       </div>
                       <div class="card-body">
                         <p class="card-text">
-                          We prove the Sobolev-to-Lipschitz property for metric measure spaces satisfying the quasi curvature dimension condition recently introduced in E. Milman, <a href=https://arXiv.org/abs/1908.01513v5 target="_blank">The Quasi Curvature-Dimension Condition with applications to sub-Riemannian manifolds</a>, <i>Comm. Pure Appl. Math.</i> (to appear). We provide several applications to properties of the corresponding heat semigroup. In particular, under the additional assumption of infinitesimal Hilbertianity, we show the Varadhan short-time asymptotics for the heat semigroup with respect to the distance, and prove the irreducibility of the heat semigroup. These result apply in particular to large classes of (ideal) sub-Riemannian manifolds.  
+                          We prove the Sobolev-to-Lipschitz property for metric measure spaces satisfying the quasi curvature dimension condition recently introduced in E. Milman, <a href=https://arXiv.org/abs/1908.01513v5 target="_blank">The Quasi Curvature-Dimension Condition with applications to sub-Riemannian manifolds</a>, <i>Comm. Pure Appl. Math.</i> (to appear). We provide several applications to properties of the corresponding heat semigroup. In particular, under the additional assumption of infinitesimal Hilbertianity, we show the Varadhan short-time asymptotics for the heat semigroup with respect to the distance, and prove the irreducibility of the heat semigroup. These results apply in particular to large classes of (ideal) sub-Riemannian manifolds.  
                         </p>
                       </div>
                     </div>
@@ -1915,7 +2232,7 @@
                     <div class="card-header py-0" id="headingPaper2021-C">
                       <button class="btn btn-sm px-0 py-2 btn-link btn-block text-left border-0 collapsed AccordionBtn" type="button" data-toggle="collapse" data-target="#Paper2021-C" aria-expanded="false" aria-controls="Paper2021-C">
                         <li class="card-title">
-                            Rademacher-type Theorems and Varadhan Short-Time Asymptotics for Local Dirichlet Spaces
+                            Rademacher-type Theorems and Sobolev-to-Lipschitz Properties for Strongly Local Dirichlet Spaces
                             <br>
                             <b>Journal of Functional Analysis</b> 281(11): 109234 (2021)
                           <p class="card-author">
@@ -1930,8 +2247,21 @@
                         <p class="card-link">
                           <i class="ai ai-closed-access ai"></i>
                           <a href=https://doi.org/10.1016/j.jfa.2021.109234 target="_blank">journal</a> &vert;
-                          <a href=https://arxiv.org/abs/2008.01492 data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a>
+                          <a href=https://arxiv.org/abs/2008.01492 data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a> &vert;
+                          <button type="button" class="btn btn-link bibtex-toggle" data-bib="bib-Paper2021-C" aria-expanded="false" aria-controls="bib-Paper2021-C">BibTeX</button>
                         </p>
+                        <div class="bibtex" id="bib-Paper2021-C" hidden><button type="button" class="btn btn-sm btn-light bibtex-copy">copy</button><pre>@article{DelloSchiavoSuzuki2021Rademachertype,
+  author        = {Dello Schiavo, Lorenzo and Suzuki, Kohei},
+  title         = {{R}ademacher-type Theorems and {S}obolev-to-{L}ipschitz Properties for Strongly Local {D}irichlet Spaces},
+  journal       = {Journal of Functional Analysis},
+  volume        = {281},
+  number        = {11},
+  pages         = {Paper No. 109234},
+  year          = {2021},
+  doi           = {10.1016/j.jfa.2021.109234},
+  eprint        = {2008.01492},
+  archivePrefix = {arXiv}
+}</pre></div>
                       </div>
                       <div class="card-body">
                         <p class="card-text">
@@ -1959,8 +2289,20 @@
                       <div class="card-body border-bottom py-2">
                         <p class="card-link">
                           <i class="ai ai-open-access ai"></i>
-                          <a href=https://doi.org/10.1007/s11118-021-09951-y target="_blank">journal</a> &vert; <a href=https://arxiv.org/abs/2003.01366 data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a>
+                          <a href=https://doi.org/10.1007/s11118-021-09951-y target="_blank">journal</a> &vert; <a href=https://arxiv.org/abs/2003.01366 data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a> &vert;
+                          <button type="button" class="btn btn-link bibtex-toggle" data-bib="bib-Paper2021-B" aria-expanded="false" aria-controls="bib-Paper2021-B">BibTeX</button>
                         </p>
+                        <div class="bibtex" id="bib-Paper2021-B" hidden><button type="button" class="btn btn-sm btn-light bibtex-copy">copy</button><pre>@article{DelloSchiavo2023Ergodic,
+  author        = {Dello Schiavo, Lorenzo},
+  title         = {Ergodic Decomposition of {D}irichlet Forms via Direct Integrals and Applications},
+  journal       = {Potential Analysis},
+  volume        = {58},
+  pages         = {573--615},
+  year          = {2023},
+  doi           = {10.1007/s11118-021-09951-y},
+  eprint        = {2003.01366},
+  archivePrefix = {arXiv}
+}</pre></div>
                       </div>
                       <div class="card-body">
                         <p class="card-text">
@@ -1988,8 +2330,21 @@
                       <div class="card-body border-bottom py-2">
                         <p class="card-link">
                           <i class="ai ai-closed-access ai"></i>
-                          <a href=https://doi.org/10.1016/j.jfa.2019.108397 target="_blank">journal</a> &vert; <a href=https://arxiv.org/abs/1810.10227 data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a>
+                          <a href=https://doi.org/10.1016/j.jfa.2019.108397 target="_blank">journal</a> &vert; <a href=https://arxiv.org/abs/1810.10227 data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a> &vert;
+                          <button type="button" class="btn btn-link bibtex-toggle" data-bib="bib-paper2020" aria-expanded="false" aria-controls="bib-paper2020">BibTeX</button>
                         </p>
+                        <div class="bibtex" id="bib-paper2020" hidden><button type="button" class="btn btn-sm btn-light bibtex-copy">copy</button><pre>@article{DelloSchiavo2020Rademachertype,
+  author        = {Dello Schiavo, Lorenzo},
+  title         = {A {R}ademacher-type Theorem on $L^2$-{W}asserstein Spaces over Closed {R}iemannian Manifolds},
+  journal       = {Journal of Functional Analysis},
+  volume        = {278},
+  number        = {6},
+  pages         = {Paper No. 108397},
+  year          = {2020},
+  doi           = {10.1016/j.jfa.2019.108397},
+  eprint        = {1810.10227},
+  archivePrefix = {arXiv}
+}</pre></div>
                       </div>
                       <div class="card-body">
                         <p class="card-text">  
@@ -2017,8 +2372,21 @@
                       <div class="card-body border-bottom py-2">
                         <p class="card-link">
                           <i class="ai ai-open-access ai"></i>
-                          <a href=https://doi.org/10.1214/19-ejp371 target="_blank">journal</a> &vert; <a href=https://arxiv.org/abs/1810.09790 data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a>
+                          <a href=https://doi.org/10.1214/19-ejp371 target="_blank">journal</a> &vert; <a href=https://arxiv.org/abs/1810.09790 data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a> &vert;
+                          <button type="button" class="btn btn-link bibtex-toggle" data-bib="bib-paper2019" aria-expanded="false" aria-controls="bib-paper2019">BibTeX</button>
                         </p>
+                        <div class="bibtex" id="bib-paper2019" hidden><button type="button" class="btn btn-sm btn-light bibtex-copy">copy</button><pre>@article{DelloSchiavo2019Characteristic,
+  author        = {Dello Schiavo, Lorenzo},
+  title         = {Characteristic Functionals of {D}irichlet Measures},
+  journal       = {Electronic Journal of Probability},
+  volume        = {24},
+  number        = {155},
+  pages         = {1--38},
+  year          = {2019},
+  doi           = {10.1214/19-ejp371},
+  eprint        = {1810.09790},
+  archivePrefix = {arXiv}
+}</pre></div>
                       </div>
                       <div class="card-body">
                         <p class="card-text">  
@@ -2047,8 +2415,20 @@
                         <p class="card-link">
                           <i class="ai ai-open-access ai"></i>
                           <a href=https://doi.org/10.1038/srep36314 target="_blank">journal</a> &vert; <a href=https://arxiv.org/abs/1605.01624 data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i>
-                          </a>
+                          </a> &vert;
+                          <button type="button" class="btn btn-link bibtex-toggle" data-bib="bib-paper2016" aria-expanded="false" aria-controls="bib-paper2016">BibTeX</button>
                         </p>
+                        <div class="bibtex" id="bib-paper2016" hidden><button type="button" class="btn btn-sm btn-light bibtex-copy">copy</button><pre>@article{AgliariBarraDelloSchiavoMoro2016Complete,
+  author        = {Agliari, Elena and Barra, Adriano and Dello Schiavo, Lorenzo and Moro, Antonio},
+  title         = {Complete integrability of information processing by biochemical reactions},
+  journal       = {Scientific Reports},
+  volume        = {6},
+  pages         = {36314},
+  year          = {2016},
+  doi           = {10.1038/srep36314},
+  eprint        = {1605.01624},
+  archivePrefix = {arXiv}
+}</pre></div>
                       </div>
                       <div class="card-body">
                         <p class="card-text">  
@@ -2076,8 +2456,19 @@
                       <div class="card-body border-bottom py-2">
                         <p class="card-link">
                           <i class="ai ai-closed-access ai"></i>
-                          <a href=https://doi.org/10.1007/s40574-015-0028-y target="_blank">journal</a> &vert; <span style="opacity:.2;"><i class="ai ai-arxiv"></i></span>
+                          <a href=https://doi.org/10.1007/s40574-015-0028-y target="_blank">journal</a> &vert; <span style="opacity:.2;"><i class="ai ai-arxiv"></i></span> &vert;
+                          <button type="button" class="btn btn-link bibtex-toggle" data-bib="bib-paper2015-B" aria-expanded="false" aria-controls="bib-paper2015-B">BibTeX</button>
                         </p>
+                        <div class="bibtex" id="bib-paper2015-B" hidden><button type="button" class="btn btn-sm btn-light bibtex-copy">copy</button><pre>@article{DelloSchiavo2015Marcinkiewicz,
+  author  = {Dello Schiavo, Lorenzo},
+  title   = {{M}arcinkiewicz continuity estimates for infinite energy solutions of some second order elliptic {D}irichlet problems},
+  journal = {Bollettino dell'Unione Matematica Italiana},
+  volume  = {8},
+  number  = {2},
+  pages   = {97--112},
+  year    = {2015},
+  doi     = {10.1007/s40574-015-0028-y}
+}</pre></div>
                       </div>
                       <div class="card-body">
                         <p class="card-text">  
@@ -2104,8 +2495,20 @@
                       <div class="card-body border-bottom py-2">
                         <p class="card-link">
                           <i class="ai ai-open-access ai"></i>
-                          <a href=https://doi.org/10.1038/srep09415 target="_blank">journal</a> &vert; <a href=https://arxiv.org/abs/1408.2725 data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a>
+                          <a href=https://doi.org/10.1038/srep09415 target="_blank">journal</a> &vert; <a href=https://arxiv.org/abs/1408.2725 data-toggle="tooltip" target="_blank" title="arXiv"><i class="ai ai-arxiv"></i></a> &vert;
+                          <button type="button" class="btn btn-link bibtex-toggle" data-bib="bib-paper2015-A" aria-expanded="false" aria-controls="bib-paper2015-A">BibTeX</button>
                         </p>
+                        <div class="bibtex" id="bib-paper2015-A" hidden><button type="button" class="btn btn-sm btn-light bibtex-copy">copy</button><pre>@article{AgliariAltavillaBarraDelloSchiavoKatz2015Notes,
+  author        = {Agliari, Elena and Altavilla, Matteo and Barra, Adriano and Dello Schiavo, Lorenzo and Katz, Evgeny},
+  title         = {Notes on stochastic (bio)-logic gates: computing with allosteric cooperativity},
+  journal       = {Scientific Reports},
+  volume        = {5},
+  pages         = {9415},
+  year          = {2015},
+  doi           = {10.1038/srep09415},
+  eprint        = {1408.2725},
+  archivePrefix = {arXiv}
+}</pre></div>
                       </div>
                       <div class="card-body">
                         <p class="card-text"> 
@@ -2119,8 +2522,8 @@
                 <h6>proceedings</h6>
                 <ol start="4" reversed>
                   <div class="card mt-2">
-                    <div class="card-header py-0" id="headingProc1">
-                      <button class="btn btn-sm p-0 py-2 btn-link btn-block text-left border-0 collapsed AccordionBtn" type="button" data-toggle="collapse" data-target="#Proc1" aria-expanded="false" aria-controls="Proc1">
+                    <div class="card-header py-0" id="headingProc4">
+                      <button class="btn btn-sm p-0 py-2 btn-link btn-block text-left border-0 collapsed AccordionBtn" type="button" data-toggle="collapse" data-target="#Proc4" aria-expanded="false" aria-controls="Proc4">
                         <li class="card-title">
                           A Discovery Tour in Random Riemannian Geometry
                           <br>
@@ -2131,11 +2534,11 @@
                         </li>
                       </button>
                     </div>
-                    <div id="Proc1" class="collapse" aria-labelledby="headingProc1" data-parent="#accordionPubs">
+                    <div id="Proc4" class="collapse" aria-labelledby="headingProc4" data-parent="#accordionPubs">
                       <div class="card-body border-bottom py-2">
                         <p class="card-link">
                           <i class="ai ai-open-access ai"></i>
-                          <a href=https://www.doi.org/10.4171/owr/2022/49 target="_blank">journal</a>
+                          <a href=https://www.doi.org/10.4171/owr/2022/53 target="_blank">journal</a>
                         </p>
                       </div>
                       <!--<div class="card-body">
@@ -2270,76 +2673,145 @@
           </div>
 
           <!--TAB Research-->
-          <div class="tab-pane fade" id="ResearchTab" role="tabpanel" arialabelledby="BtnResearch">
+          <div class="tab-pane fade" id="ResearchTab" role="tabpanel" aria-labelledby="BtnResearch">
             <div class="container" style="max-width:560px">
               <p class="presentation-text">
-                My current research focus is on the Dirichlet-forms approach to Markov diffusions on non-flat infinite-dimensional spaces, in particular <em>Wasserstein</em> and <em>configuration</em> spaces.
+                I work at the interface between analysis, probability, and geometry.
+                The common thread of my current research is the construction and study of Markov diffusions on infinite-dimensional and non-smooth spaces &mdash;&nbsp;spaces of measures, configuration spaces, general metric measure spaces&nbsp;&mdash; and of the geometry these spaces carry, using Dirichlet forms, optimal transport, and metric measure geometry.
+                Links below open the corresponding entries in the list of <a href="#PublicationsTab">publications</a>.
               </p>
 
+              <!--Spaces of measures: diffusions-->
+              <p class="presentation-text">
+                <b>Wasserstein Diffusions, Particle Systems, and the Dean–Kawasaki Equation</b>
+              </p>
+
+                <p class="research-figure" style="text-align: center; padding-bottom: 15px; padding-left: 15px; float: right; display: block; line-height: 80%;"><img src="Dirichlet.png" alt="Sample of a Dirichlet–Ferguson random measure on the square" width="200" height="170"/><br/><span style="font-size: 10px; line-height: 80%;">a $\mathcal{D}$-typical measure on the square</span></p>
+
+                <p class="presentation-text">
+                  My <a href="#headingThesisPhD">PhD thesis</a> constructs the <a href="#headingDFDiffusion">Dirichlet–Ferguson diffusion</a>, a canonical diffusion on the $L^2$-Wasserstein space $\mathscr{P}_2(M)$ over a closed Riemannian manifold $M$ of dimension $d\geq 2$, reversible with respect to the Dirichlet–Ferguson measure. It is the multi-dimensional counterpart of Konarovskyi's Modified Massive Arratia Flow.
+                </p>
+
+                <p class="presentation-text">
+                  More recently, I developed a <a href="#headingPreprint18">unifying theory</a> for four objects: infinite systems of interacting massive particles, solutions to the Dean–Kawasaki equation with singular drift, Wasserstein diffusions with purely atomic reversible random measures, and metric measure Brownian motions on $L^2$-Wasserstein spaces.
+                  The theory works on general locally compact Polish spaces, with the Laplacian replaced by an arbitrary diffusive Markov generator $\mathsf{L}$, and includes singular mean-field interactions of Riesz and logarithmic type. Each such $\mathsf{L}$ induces a geometry on the space of probability measures, which reduces to $L^2$-optimal transport when $\mathsf{L}$ is a drifted Laplace–Beltrami operator.
+                  With V.&nbsp;Konarovskyi, I showed that the <a href="#headingPreprint20">pure-noise Dean–Kawasaki equation is ill-posed</a>: it has no solutions for any initial measure and any bounded drift, a sharp result.
+                </p>
+
+                <p class="presentation-text">
+                  I am also interested in scaling limits of interacting particle systems. With L.&nbsp;Portinale and <a href="https://sites.google.com/view/federicosau/home">F.&nbsp;Sau</a>, I derived the <a href="#headingPaper2023B">hydrodynamic and hydrostatic limits</a> of the open symmetric exclusion and inclusion processes on Lipschitz domains, with Neumann, Robin, or Dirichlet boundary conditions depending on the strength of the boundary reservoirs.
+                </p>
+
+              <!--Spaces of measures: geometry-->
+              <p class="presentation-text" style="clear: both;">
+                <b>Geometry of Spaces of Measures</b>
+              </p>
+                <p class="presentation-text">
+                  I study the differential and metric measure structure of spaces of measures, starting from a <a href="#headingPaper2020">Rademacher-type theorem</a> on $\mathscr{P}_2(M)$.
+                  With <a href="https://giacomosodini.github.io/">G.E.&nbsp;Sodini</a>, I showed that the space $\mathcal{M}(M)$ of all non-negative measures on a Riemannian manifold, endowed with the <a href="#headingPreprint21">Hellinger–Kantorovich distance</a>, is universally infinitesimally Hilbertian, and that its canonical Dirichlet form with respect to Vershik's multiplicative infinite-dimensional Lebesgue measure $\mathcal{L}_\theta$ coincides with the Cheeger energy. The associated Brownian motion is recurrent if and only if $\theta\in(0,1]$.
+                  With A.&nbsp;Pinamonti, I am developing a <a href="#headingPreprint23">global differential calculus</a> on the Wasserstein space, based on derivations of cylinder functions. In this framework the Levi-Civita connection and the Riemann tensor of the base manifold lift to the Wasserstein space, and the correction terms of the classical gradient formalism come from the projection onto the gradient distribution rather than from intrinsic curvature.
+                </p>
+
+              <!--Configuration spaces-->
+              <p class="presentation-text">
+                <b>Configuration Spaces</b>
+              </p>
+                <p class="presentation-text">
+                  Together with <a href="https://ksuzukimath.jimdofree.com/">Kohei Suzuki</a>, I am developing a series of works on the configuration space&nbsp;$\Upsilon$ over a metric measure space&nbsp;$X$. Here $\Upsilon$ is endowed with the $L^2$-transportation distance $\mathsf{d}_\Upsilon$ and with a reference measure $\mu$, such as a Poisson, Gibbs, or quasi-Gibbs measure (e.g. sine$_\beta$, Airy$_\beta$, Bessel, Ginibre).
+                  In the <a href="#headingPreprint7">first part</a> we construct the canonical differential structure on $\Upsilon$, showing that the Dirichlet form lifted from $X$ coincides with the Cheeger energy of $(\Upsilon,\mathsf{d}_\Upsilon,\mu)$, with no smoothness of $X$ and no quasi-invariance of $\mu$ required.
+                  In the <a href="#headingPreprint11">second part</a> we transfer Bakry–Émery curvature bounds from $X$ to $\Upsilon$ and prove the Sobolev-to-Lipschitz property conjectured by M.&nbsp;Röckner and A.&nbsp;Schied.
+                  With <a href="http://ronanherry.org/">R.&nbsp;Herry</a> and K.&nbsp;Suzuki, I constructed an <a href="#headingPreprint13">optimal-transport geometry on the Poisson space</a>, for which the Ornstein–Uhlenbeck semigroup is the gradient flow of the relative entropy and the Ricci curvature is bounded below by $1$.
+                </p>
+
+              <!--Dirichlet forms-->
+              <p class="presentation-text">
+                <b>Dirichlet Forms, Linear and Non-linear</b>
+              </p>
+                <p class="presentation-text">
+                  Much of the above rests on results for Dirichlet spaces in full generality.
+                  With K.&nbsp;Suzuki, I studied the <a href="#headingPaper2021-C">Rademacher and Sobolev-to-Lipschitz properties</a> of intrinsic distances, their <a href="#headingPreprint16">persistence</a> under localization, tensorization, and direct integration, and the resulting Varadhan short-time asymptotics.
+                  I also constructed <a href="#headingPaper2021-B">ergodic decompositions</a> of quasi-regular Dirichlet spaces, and studied their behavior under order isomorphisms with <a href="https://www.researchgate.net/profile/Melchior-Wirth">M.&nbsp;Wirth</a>.
+                </p>
+                <p class="presentation-text">
+                  A newer direction is non-linear. With <a href="https://sites.google.com/view/giovannibrigati/home">G.&nbsp;Brigati</a>, I laid the <a href="#headingPreprint22">foundations of a theory of non-bilinear Dirichlet functionals</a> on Hilbert spaces, with complete characterizations of Markovianity, invariance, and (strong) locality.
+                  In October 2026 I co-organized, with <a href="https://sites.google.com/view/mathiasbraun">M.&nbsp;Braun</a>, G.&nbsp;Brigati, and <a href="https://mrehmeier.de/">M.&nbsp;Rehmeier</a>, the workshop <a href="https://sites.google.com/view/mdpde26/home" target="_blank"><em>Nonlinear Markov Processes, Dirichlet Forms, and PDEs</em></a> at the Bernoulli Center, EPFL.
+                </p>
+
+              <!--Gradient flows-->
+              <p class="presentation-text">
+                <b>Gradient Flows and Synthetic Curvature</b>
+              </p>
+                <p class="presentation-text">
+                  I am interested in gradient flows of functionals on metric spaces.
+                  With <a href="https://www.janmaas.org/">J.&nbsp;Maas</a> and F.&nbsp;Pedrotti, I gave <a href="#headingPreprint14">local conditions</a> of Kurdyka–Łojasiewicz type, stated only in terms of the initial datum, for the global convergence of gradient flows and proximal point sequences, with sharp rates.
+                  With M.&nbsp;Magnabosco and <a href="https://sites.google.com/view/chiararigoni/home">C.&nbsp;Rigoni</a>, I studied <a href="#headingPreprint19">$(K,N)$-convex functionals with negative $N$</a>, which may take both values $\pm\infty$, proving contractivity, regularity, and uniqueness of their gradient flows in the sense of Evolution Variational Inequalities.
+                </p>
+
+              <!--Random Riemannian geometry-->
               <p class="presentation-text">
                 <b>Random Riemannian Geometry</b>
               </p>
 
-                <p style="text-align: center; padding-bottom: 15px; padding-left: 15px; float: right; display: block; line-height: 80%;"><img src="GMC25.png" alt="GaussianMulticativeChaos25.png" width="200" height="170" data-api-endpoint="GMC25.png" data-api-returntype="File"/><br/><span style="font-size: 10px; line-height: 80%;">truncated Fourier-series expansion of<br>the LQG measure on 2D unit torus</span></p>
+                <p class="research-figure" style="text-align: center; padding-bottom: 15px; padding-left: 15px; float: right; display: block; line-height: 80%;"><img src="GMC25.png" alt="Liouville Quantum Gravity measure on the 2D torus" width="200" height="170"/><br/><span style="font-size: 10px; line-height: 80%;">truncated Fourier-series expansion of<br>the LQG measure on 2D unit torus</span></p>
 
                 <p class="presentation-text">
-                Together with <a href="http://ronanherry.org/">Ronan Herry</a>, and PIs <a href="https://wt.iam.uni-bonn.de/kopfer/home">Eva Kopfer</a>, and <a href="https://wt.iam.uni-bonn.de/sturm/home/">Karl-Theodor Sturm</a>, I am a member of <a href="https://spp2265.wias-berlin.de/project.php?projectID=39">Projekt 15</a> <em>Random Riemannian Geometry</em> within the DFG Priority Programme <a href="https://spp2265.wias-berlin.de/">SPP 2265</a>.
-                We are studying Liouville Quantum Gravity on closed Riemannian manifolds $(M,g)$ of even dimension $n\geq 2$. In order to obtain a <i>conformal</i> field theory, we replace the standard Laplace–Beltrami operator with its conformally covariant counterpart, the Graham–Jenne–Mason–Sparling operator of critical order $n$.
+                  As an adjunct member of <a href="https://spp2265.wias-berlin.de/project.php?projectID=39">project&nbsp;15</a> <em>Random Riemannian Geometry</em> of the DFG Priority Programme <a href="https://spp2265.wias-berlin.de/">SPP&nbsp;2265</a>, I work with <a href="http://ronanherry.org/">R.&nbsp;Herry</a>, <a href="https://wt.iam.uni-bonn.de/kopfer/home">E.&nbsp;Kopfer</a>, and <a href="https://wt.iam.uni-bonn.de/sturm/home/">K.-T.&nbsp;Sturm</a> on random geometries over manifolds of arbitrary even dimension&nbsp;$n$.
+                  Replacing the Laplace–Beltrami operator with its conformally covariant counterpart, the GJMS operator of critical order&nbsp;$n$, we construct <a href="#headingPreprint5">conformally invariant log-correlated Gaussian fields</a>, the associated quantum Liouville measures and Liouville Brownian motion, and a Polyakov–Liouville measure with its conformal anomaly.
+                  On tori of arbitrary dimension we proved the <a href="#headingPreprint12">discrete-to-continuum convergence</a> of polyharmonic fields and of their Liouville Quantum Gravity measures for all $|\gamma|<\sqrt{2n}$.
+                  In the regular regime, Fractional Gaussian Fields give <a href="#headingPaper2023C">random conformal perturbations</a> of a Riemannian metric, and we study how diameter, volume, heat kernel, and spectral gap respond to the noise.
                 </p>
 
-              <p class="presentation-text">
-                <b>Analysis and Geometry on Spaces of Measures</b>
+              <!--Random measures and partitions-->
+              <p class="presentation-text" style="clear: both;">
+                <b>Random Measures and Exchangeable Partitions</b>
               </p>
                 <p class="presentation-text">
-                  I am broadly interested in the interplay among analysis, stochastic analysis, and (metric measure) geometry on spaces of measures, and in particular spaces of probability measures and spaces of configurations.
+                  The Dirichlet–Ferguson measure, the invariant measure of the diffusion above, is a central object in Bayesian non-parametrics and in the theory of random measures; I computed its <a href="#headingPaper2019">characteristic functional</a> over locally compact Polish spaces.
+                  With <a href="https://sites.google.com/view/filippoquattrocchi/">F.&nbsp;Quattrocchi</a>, I introduced <a href="#headingPreprint17">polychromatic partitions</a>, partitions of colored elements in which each block records only how many elements of each color it contains. We define a polychromatic Ewens Sampling Formula and Hoppe urn, and prove a complete Kingman-type characterization of polychromatic partition structures, with applications to the moments of random measures.
                 </p>
 
-                <p style="text-align: center; padding-bottom: 15px; padding-right: 15px; float: left; display: block; line-height: 80%;"><img src="Dirichlet.png" alt="DirichletFergusonSample.png" width="200" height="170" data-api-endpoint="GMC25.png" data-api-returntype="File"/><br/><span style="font-size: 10px; line-height: 80%;">a $\mathcal{D}$-typical measure on the square</span></p>
-                
-                <p class="presentation-text">
-                  <i>Probabilities measures.</i>&emsp; My <a href="#headingThesisPhD" id="ThesisLink">PhD thesis</a> contains two constructions of the <a href="#headingDFDiffusion" id="DFDiffusionLink">Dirichlet–Ferguson diffusion</a> on the $L^2$-Wasserstein space $\mathscr{P}_2(M)$ over any closed Riemannian manifold $(M,g)$ of dimension $d\geq 2$.
-                  This process can be regarded as the canonical diffusion process induced by the geometry of $\mathscr{P}_2$ and by the Dirichlet–Ferguson measure $\mathcal{D}_{m_g}$ with intensity measure the Riemannian volume $m_g$.
-                  It is the multi-dimensional analog of Konarovskyi's Modified Massive Arratia Flow, but no coalescence occurs, by reason of the dimension of $M$.
-                  The construction required a thorough study of the Dirichlet–Ferguson measure, and a Rademacher-type theorem for general measures on $\mathscr{P}_2(M)$.
-                </p>
-
-                <p class="presentation-text">
-                  <i>Configurations.</i>&emsp; Together with <a href="https://ksuzukimath.jimdofree.com/">Kohei Suzuki</a>, we are developing a comprehensive analytical and geometric framework for the study of diffusions on the configuration space&nbsp;$\Upsilon$ over a metric measure space $(X,d,m)$.
-                  Typically, $\Upsilon$ will be endowed with a quasi-Gibbs probability reference measure $\mu$ and with the $L^2$-transportation distance $d_\Upsilon$ induced by $d$.
-                  As a first cornerstone in the theory, we show that &horbar;&nbsp;under quite general assumptions on $X$ and $\mu$&nbsp;&horbar; the metric measure structure of $(\Upsilon,d_\Upsilon,\mu)$ coincides with the Dirichlet space structure on $\Upsilon$ inherited from $X$.
-                </p>
-
-                <p class="presentation-text" id="EspritProject">
-                  <i>ESPRIT Project 208.</i>&emsp; I am principal investigator of the project <i>Configuration Spaces over non-smooth Spaces</i> funded by the Austrian Science Fund (FWF) under the Esprit Programme, with Jan Maas as my mentor.
-
-                  <ul> <!--style="font-size: 11px;-->
-                    <li class="presentation-text">Duration: July 1, 2022 – <s>June 30, 2025</s> November 3, 2024 (terminated)</li>
-
-                    <li class="presentation-text"><a href="https://pf.fwf.ac.at/en/research-in-practice/project-finder?search%5Bwhat%5D=Dello+Schiavo&search%5Bpromotion_category_id%5D%5B%5D=&search%5Bcall%5D=&search%5Bproject_number%5D=&search%5Bdecision_board_ids%5D=&search%5Bproject_title%5D=&search%5Blead_firstname%5D=&search%5Blead_lastname%5D=&search%5Bresearch_place_kind%5D%5B%5D=&search%5Binstitute_name%5D=&search%5Bstart_date%5D=&search%5Bend_date%5D=&search%5Bgrant_years%5D%5B%5D=&search%5Bstatus_id%5D=&search%5Bscience_discipline_id%5D=&search%5Bper_page%5D=10#search-results">ESP 208 ESPRIT-Programm</a></li>
-
-                    <li class="presentation-text">Total Funding: € 294.015,98</li>
-                  </ul>
-                </p>
-
+              <!--Funding-->
               <p class="presentation-text">
-                <b>Non-smooth Spaces and Dirichlet Spaces</b>
-              </p>
-              <p class="presentation-text">
-                Part of my research is focused on abstract Dirichlet spaces, approached in full generality.
-                The main contributions are: the construction of ergodic decompositions for general quasi-regular strongly local Dirichlet spaces; a study behavior of these decompositions under the action of order isomorphisms (with <a href="https://www.researchgate.net/profile/Melchior-Wirth">Melchior Wirth</a>); a study of the metric properties of intrinsic distances, and in particular of the Rademacher and Sobolev-to-Lipschitz properties, and of Varadhan integral-type short-time asymptotics for the heat semigroup (with K. Suzuki).
-              </p>
-
-              <p class="presentation-text">
-                <b>Biological Cybernetics</b>
+                <b>Funding</b>
               </p>
                 <p class="presentation-text">
-                  During my master studies, my main interests lay in optimal transport and second-order elliptic PDEs in divergence form. Also, I was a member of <a href="https://www.adrianobarra.com">Adriano Barra</a>&apos;s research group on <a href="https://www.adrianobarra.com/biological-cybernetics.html"><em>biological cybernetics</em></a>.
+                  I am an adjunct member of the DFG Priority Programme <a href="https://spp2265.wias-berlin.de/">SPP&nbsp;2265</a> <em>Random Geometric Systems</em>.
+                  My research has further been supported by the following grants and programmes.
                 </p>
+                <ul>
+                  <li class="presentation-text">
+                    <i>CNRS Postes Rouges</i> (2026):
+                    research stay at the Université de Haute-Alsace, Mulhouse, October 1 – December 4, 2026.
+                    <br>
+                    Total Funding: ~€ 6.000
+                  </li>
+
+                  <li class="presentation-text">
+                    <i>Royal Society International Exchanges</i> (IES\R2\252126, 2025–2027):
+                    <i>SPDEs for Fluctuating Hydrodynamics: Efficient simulation of multi-scale multi-species particle systems</i>, co-applicant with <a href="https://sites.google.com/view/federicocornalba/home" target="_blank">Federico Cornalba</a> (University of Bath) as lead applicant.
+                    <br>
+                    Total Funding: £ 11.650,00
+                  </li>
+
+                  <li class="presentation-text" id="EspritProject">
+                    <i>FWF ESPRIT Programme</i> (<a href="https://pf.fwf.ac.at/en/research-in-practice/project-finder?search%5Bwhat%5D=Dello+Schiavo&search%5Bpromotion_category_id%5D%5B%5D=&search%5Bcall%5D=&search%5Bproject_number%5D=&search%5Bdecision_board_ids%5D=&search%5Bproject_title%5D=&search%5Blead_firstname%5D=&search%5Blead_lastname%5D=&search%5Bresearch_place_kind%5D%5B%5D=&search%5Binstitute_name%5D=&search%5Bstart_date%5D=&search%5Bend_date%5D=&search%5Bgrant_years%5D%5B%5D=&search%5Bstatus_id%5D=&search%5Bscience_discipline_id%5D=&search%5Bper_page%5D=10#search-results">ESP 208</a>, 2022–2024):
+                    <i>Configuration Spaces over non-smooth Spaces</i>, principal investigator, with Jan Maas as my mentor.
+                    <br>
+                    Duration: July 1, 2022 – <s>June 30, 2025</s> November 3, 2024 (terminated)
+                    <br>
+                    Total Funding: € 294.015,98
+                  </li>
+
+                  <li class="presentation-text">
+                    <i>MFO Research in Pairs</i> (2020):
+                    research stay with <a href="https://ksuzukimath.jimdofree.com/">Kohei Suzuki</a> at the Mathematisches Forschungsinstitut Oberwolfach, November 21 – December 18, 2020.
+                  </li>
+                </ul>
             </div>
           </div>
 
           <!--TAB SciPop-->
-          <div class="tab-pane fade" id="SciPopTab" role="tabpanel" arialabelledby="BtnSciPop">
+          <div class="tab-pane fade" id="SciPopTab" role="tabpanel" aria-labelledby="BtnSciPop">
             <div class="container" style="max-width:560px">
               <div class="accordion" id="accordionSciPop">
 
@@ -2446,7 +2918,7 @@
                           This Demonstration shows the evolution of a partially asymmetric simple exclusion process (PASEP) on the integer lattice $\mathbb{Z}.$ In PASEP, a particle waits an exponential amount of time, then moves to the right with probability $p$ or to the left with probability $1-p$, unless the site is occupied. In the case $p=1$, the dynamic is totally asymmetric, and the process is known as a totally asymmetric simple exclusion process (TASEP).
                         </p>
 
-                        <img src="WDP-TASEP.png" alt="Wolfram Demonstration Project TASEP" width="490">
+                        <img src="WDP-TASEP.png" class="img-fluid" alt="Wolfram Demonstration Project TASEP" width="490">
                         
                       <!--WDP embedder (broken because of WDP)  
                         <iframe width='800' height='400' src='https://www.wolframcloud.com/obj/82321d43-db78-4aba-a70b-fa42dee6076c' frameborder='0'>
@@ -2477,7 +2949,7 @@
                       </div>
                       <div class="card-body">
                         <p class="card-text">  
-                          This demonstration helps visualizing Runge's phenomenon in spline intepolation.
+                          This demonstration helps visualize Runge's phenomenon in spline interpolation.
                         </p>
                       </div>
                     </div>
@@ -2504,10 +2976,10 @@
                       </div>
                       <div class="card-body">
                         <p class="card-text">  
-                          Given $X=\{a_1,\dotsc, a_r\}$ a set of generators for $\mathbb{R}^n$, the zonotope $\mathcal{Z}(X)$ generated by $X$ is the convex hull of all vectors of the form $\sum_{a\in X} a$; that is, $\mathcal{Z}(X)$ is the Minkowski sum of all segments $[0,a]$, where $a\in X$. Also, $\mathcal{Z}(X)$ is the shadow of the $r$-dimensional cube $[0,1]^r$ via the projection $(t_1,\dotsc, t_r)\mapsto \sum_i^r t_i a_i$.
+                          Given $X=\{a_1,\dotsc, a_r\}$ a set of generators for $\mathbb{R}^n$, the zonotope $\mathcal{Z}(X)$ generated by $X$ is the convex hull of all vectors of the form $\sum_{a\in S} a$ with $S\subseteq X$; that is, $\mathcal{Z}(X)$ is the Minkowski sum of all segments $[0,a]$, where $a\in X$. Also, $\mathcal{Z}(X)$ is the shadow of the $r$-dimensional cube $[0,1]^r$ via the projection $(t_1,\dotsc, t_r)\mapsto \sum_i^r t_i a_i$.
                         </p>
 
-                        <img src="WDP-ShephardZonotope.png" alt="Wolfram Demonstration Project Shephard Zonotope" width="490">
+                        <img src="WDP-ShephardZonotope.png" class="img-fluid" alt="Wolfram Demonstration Project Shephard Zonotope" width="490">
                       </div>
                     </div>
                   </li>
@@ -2521,17 +2993,14 @@
 
 
   <!--Colophon-->
-    <div class="colophon container fixed-bottom" style="opacity:.5; padding-bottom: 50px;">
-    </div>
-
-    <div class="container mt-auto mb-0 fixed-bottom">
+    <div class="container mt-auto mb-0 pt-5">
       <div class="colophon d-flex justify-content-center mx-auto pb-1 pt-1 mt-3">
         <span style="font-size:10px; text-align: center">
           Powered by: &emsp; <i class="fa fa-css3"></i> &emsp; Bootstrap &emsp; <i class="fa fa-html5"></i> &emsp; MathJax &emsp; <i class="fa fa-font-awesome"></i>
         <br>
           © 2021 &mdash; 2026 Copyright: Lorenzo Dello Schiavo
         <br>
-          Last updated: May 3, 2026
+          Last updated: October 30, 2026
         </span>
       </div>
     </div>
@@ -2551,55 +3020,79 @@
       });
     </script>
 
-  <!--navbar show labels script-->
+
+  <!--Tabs: open the right tab for links like #headingPreprint18 and for URLs like index.html#PublicationsTab-->
     <script>
-      $(document).ready(function(){
-              $(".navbar-btn").mouseenter(function(){
-                const $target = $($(this).attr("target"));
-                if ($target.css('display') !== 'none') {
-                  $target.stop(true, false).animate({ width: "+=100px" }, 1500, "linear");
-                }
-              });
-            });
-            $(document).ready(function(){
-              $(".navbar-btn").mouseleave(function(){
-                const $target = $($(this).attr("target"));
-                if ($target.css('display') !== 'none') {
-                  $target.stop(true, false).animate({ width: "-=100px" }, 1500, "linear");
-                }
-              });
-            });
-    </script>
+      $(function(){
+        function goTo(hash){
+          var el = hash && hash.length > 1 && document.getElementById(hash.slice(1));
+          if (!el) return false;
+          var $el = $(el);
+          var $pane = $el.closest('.tab-pane');
+          var finish = function(){
+            if ($el.hasClass('card-header')) { $el.next('.collapse').collapse('show'); }
+            if (!$el.hasClass('tab-pane')) { el.scrollIntoView({block: 'start'}); }
+          };
+          var $btn = $pane.length ? $('#list-tab a[href="#' + $pane.attr('id') + '"]') : $();
+          if ($btn.length && !$pane.hasClass('active')) {
+            $btn.one('shown.bs.tab', finish).tab('show');
+          } else {
+            finish();
+          }
+          return true;
+        }
 
-    <script>
-    	$(document).ready(function(){
-    		$("#ThesisLink").click(function(){
-    			$("#ResearchTab").removeClass("show active")
-    			$("#PublicationsTab").addClass("show active")
-
-    			$("#BtnResearch").removeClass("active")
-    			$("#BtnPublications").addClass("active")
-    		});
-    	});
-
-      $(document).ready(function(){
-        $("#EspritLink").click(function(){
-          $("#AboutTab").removeClass("show active")
-          $("#ResearchTab").addClass("show active")
-
-          $("#BtnAbout").removeClass("active")
-          $("#BtnResearch").addClass("active")
+        // links pointing into another tab (e.g. from Research to Publications)
+        $('.tab-content').on('click', 'a[href^="#"]', function(e){
+          if (goTo(this.getAttribute('href'))) { e.preventDefault(); }
         });
-      });
 
-      $(document).ready(function(){
-        $("#DFDiffusionLink").click(function(){
-          $("#ResearchTab").removeClass("show active")
-          $("#PublicationsTab").addClass("show active")
-
-          $("#BtnResearch").removeClass("active")
-          $("#BtnPublications").addClass("active")
+        // keep the address bar in sync, so each tab can be bookmarked and shared
+        $('#list-tab a[data-toggle="list"]').on('shown.bs.tab', function(){
+          if (window.history && history.replaceState) { history.replaceState(null, '', this.getAttribute('href')); }
         });
+
+        // map: load the Google Maps embed only when the Contact tab is opened
+        $('#BtnLocation').on('shown.bs.tab', function(){
+          var map = document.querySelector('#LocationTab iframe[data-src]');
+          if (map && !map.getAttribute('src')) { map.setAttribute('src', map.getAttribute('data-src')); }
+        });
+
+        // e-mail: assemble the address on load, so it is clickable but not written out in the HTML
+        var mail = document.getElementById('EmailLink');
+        if (mail) {
+          $(mail).tooltip('dispose');
+          mail.removeAttribute('title');
+          mail.removeAttribute('data-toggle');
+          mail.href = 'mailto:' + mail.getAttribute('data-user') + '@' + mail.getAttribute('data-domain');
+        }
+
+        // BibTeX: show/hide the entry, and copy it to the clipboard
+        $(document).on('click', '.bibtex-toggle', function(){
+          var box = document.getElementById(this.getAttribute('data-bib'));
+          box.hidden = !box.hidden;
+          this.setAttribute('aria-expanded', String(!box.hidden));
+        });
+        $(document).on('click', '.bibtex-copy', function(){
+          var btn = this, pre = $(btn).siblings('pre')[0];
+          var done = function(){ btn.textContent = 'copied'; setTimeout(function(){ btn.textContent = 'copy'; }, 1500); };
+          var fallback = function(){
+            var range = document.createRange();
+            range.selectNodeContents(pre);
+            var sel = window.getSelection();
+            sel.removeAllRanges();
+            sel.addRange(range);
+            try { if (document.execCommand('copy')) { done(); } } catch (e) {}
+          };
+          if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(pre.textContent).then(done, fallback);
+          } else {
+            fallback();
+          }
+        });
+
+        // open the tab named in the URL on page load
+        goTo(window.location.hash);
       });
     </script>
 
@@ -2621,22 +3114,6 @@
     </script>
   -->
 
-    <!--Passive event listener for Google Maps API-->
-    <script>
-      $(document).ready(function () {
-            if (typeof EventTarget !== "undefined") {
-                let func = EventTarget.prototype.addEventListener;
-                EventTarget.prototype.addEventListener = function (type, fn, capture) {
-                    this.func = func;
-                    if(typeof capture !== "boolean"){
-                        capture = capture || {};
-                        capture.passive = false;
-                    }
-                    this.func(type, fn, capture);
-                };
-            };
-        }());
-    </script>
   
   </body>
 </html>
